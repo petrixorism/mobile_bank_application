@@ -105,138 +105,139 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <Button
                 android:id="@+id/button_1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="1"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-
                 app:layout_constraintBottom_toTopOf="@id/button_4"
                 app:layout_constraintEnd_toStartOf="@id/button_2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
-                android:foreground="?android:selectableItemBackgroundBorderless"
+                android:foreground="?android:selectableItemBackground"
                 android:gravity="center"
                 android:text="2"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-
                 app:layout_constraintBottom_toTopOf="@id/button_5"
                 app:layout_constraintEnd_toStartOf="@id/button_3"
                 app:layout_constraintStart_toEndOf="@id/button_1"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="3"
                 android:textColor="@color/black"
-
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/button_6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_2"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="4"
                 android:textColor="@color/black"
-
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/button_7"
                 app:layout_constraintEnd_toStartOf="@id/button_5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_1" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_5"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="5"
                 android:textColor="@color/black"
-
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/button_8"
                 app:layout_constraintEnd_toStartOf="@id/button_6"
                 app:layout_constraintStart_toEndOf="@id/button_4"
                 app:layout_constraintTop_toBottomOf="@id/button_2" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_6"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="6"
                 android:textColor="@color/black"
-
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/button_9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_5"
                 app:layout_constraintTop_toBottomOf="@id/button_3" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_7"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="7"
                 android:textColor="@color/black"
-
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/button_10"
                 app:layout_constraintEnd_toStartOf="@id/button_8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_4" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_8"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="8"
                 android:textColor="@color/black"
-
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/button_11"
                 app:layout_constraintEnd_toStartOf="@id/button_9"
                 app:layout_constraintStart_toEndOf="@id/button_7"
                 app:layout_constraintTop_toBottomOf="@id/button_5" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_9"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
@@ -248,10 +249,11 @@
                 app:layout_constraintStart_toEndOf="@id/button_8"
                 app:layout_constraintTop_toBottomOf="@id/button_6" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_10"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
@@ -264,17 +266,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_7" />
 
-            <TextView
+            <Button
                 android:id="@+id/button_11"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:background="#00000000"
                 android:fontFamily="@font/poppins_medium"
                 android:foreground="?android:selectableItemBackgroundBorderless"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/button_12"
                 app:layout_constraintStart_toEndOf="@id/button_10"
@@ -308,7 +310,7 @@
             android:fontFamily="@font/poppins_medium"
             android:foreground="@drawable/ripple_corner_36"
             android:paddingVertical="12dp"
-            android:text="@string/try_again"
+            android:text="Set PIN"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

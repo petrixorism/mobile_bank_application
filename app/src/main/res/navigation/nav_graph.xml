@@ -52,7 +52,7 @@
         tools:layout="@layout/fragment_no_connection" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="uz.gita.myapplication.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:name="uz.gita.myapplication.ui.screen.MainFragment"
+        android:label="fragment_pin"
+        tools:layout="@layout/fragment_pin" />
 </navigation>
