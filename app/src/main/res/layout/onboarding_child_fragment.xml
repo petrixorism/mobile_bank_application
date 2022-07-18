@@ -17,13 +17,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/security"
+        android:background="@drawable/ic_onboarding1"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".35"
+        app:layout_constraintHeight_percent=".3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent=".6" />
+        app:layout_constraintWidth_percent=".8" />
 
     <TextView
         android:id="@+id/title_tv"
@@ -32,26 +32,26 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:justificationMode="inter_word"
+        android:text="Receive payments from any banking system"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline"
-        tools:text="Lorem Ipsum doloret dedt amet" />
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
 
     <TextView
         android:id="@+id/subtitle_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_regular"
-        android:justificationMode="inter_word"
+        android:text="Connect your bank card, and create accounts in the selected currency."
         android:textColor="@color/grey_darker"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_tv"
-        tools:text="Lorem Ipsum doloret dedt amet" />
+        app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

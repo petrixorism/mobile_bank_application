@@ -10,6 +10,7 @@
 
     <color name="grey">#BEBEBE</color>
     <color name="green">#09703E</color>
+    <color name="green_light">#0ACF83</color>
     <color name="grey_darker">#434343</color>
 
 </resources>
