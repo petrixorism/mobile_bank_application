@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.screen.FragmentSelectLang">
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/icon_back"
+        android:foreground="@drawable/ripple_corner_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/illustration_language"
+        app:layout_constraintBottom_toTopOf="@+id/text_title"
+        app:layout_constraintStart_toStartOf="@+id/back_btn"
+        app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/choose_your_prefered_language"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/select_btn"
+        app:layout_constraintTop_toBottomOf="@+id/text_title">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_radio_button"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/poppins_medium"
+            android:foreground="?android:selectableItemBackground"
+            android:paddingVertical="16dp"
+            android:paddingStart="24dp"
+            android:text="🇺🇿  O’zbekcha"
+            android:textColor="@color/grey_darker"
+            android:textSize="20sp"
+            tools:ignore="RtlSymmetry" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginHorizontal="24dp"
+            android:background="@color/grey" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_radio_button"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/poppins_medium"
+            android:foreground="?android:selectableItemBackground"
+            android:paddingVertical="16dp"
+            android:paddingStart="24dp"
+            android:text="🇬🇧  English"
+
+            android:textColor="@color/grey_darker"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginHorizontal="24dp"
+            android:background="@color/grey" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_radio_button"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/poppins_medium"
+            android:foreground="?android:selectableItemBackground"
+            android:paddingVertical="16dp"
+            android:paddingStart="24dp"
+            android:text="🇷🇺 Русский"
+            android:textColor="@color/grey_darker"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/select_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/shape_button"
+        android:fontFamily="@font/poppins_medium"
+        android:foreground="@drawable/ripple_corner_36"
+        android:paddingVertical="16dp"
+        android:text="@string/select"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

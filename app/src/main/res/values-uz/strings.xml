@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GITA bank</string>
+    <string name="select">Tanlash</string>
+    <string name="choose_your_prefered_language">O\'zingizga mos tilni tanlang</string>
+</resources>
