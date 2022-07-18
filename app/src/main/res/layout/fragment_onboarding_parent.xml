@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/shape_button"
+        android:fontFamily="@font/poppins_medium"
+        android:foreground="@drawable/ripple_corner_36"
+        android:paddingVertical="12dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/start"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="24dp" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
@@ -31,9 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="Skip"
+        android:text="@string/skip"
         android:textColor="@color/grey_darker"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,11 +61,25 @@
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="Next →"
+        android:text="@string/next"
         android:textColor="@color/green"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/language_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/language"
+        android:textColor="@color/grey_darker"
+        android:textSize="18sp"
+        app:drawableEndCompat="@drawable/ic_language"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

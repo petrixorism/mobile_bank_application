@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ГИТА банк</string>
-    <string name="select">Select</string>
-    <string name="choose_your_prefered_language">Choose your prefered language</string>
+    <string name="select">Выбирать</string>
+    <string name="choose_your_preffered_language">Выберите предпочитаемый язык</string>
+    <string name="select_language">Пожалуйста, выберите язык</string>
+    <string name="language">Язык</string>
+    <string name="title1">Делайте покупки в всемирно известных интернет-магазинах</string>
+    <string name="title2">Делайте покупки в всемирно известных интернет-магазинах</string>
+    <string name="title3">Переводы без комиссии</string>
+    <string name="subtitle1">Подключайте свою банковскую карту и создавайте счета в выбранной валюте.</string>
+    <string name="subtitle2">Популярные вещи, большие скидки - все это будет вам доступно.</string>
+    <string name="subtitle3">Отправляйте и получайте деньги без оплаты комиссий.</string>
+    <string name="next">Следующий →</string>
+    <string name="start">Начинать</string>
+    <string name="skip">Пропускать</string>
+    <string name="no_internet_connection">Нет соединения с интернетом</string>
+    <string name="try_again">Попробуйте снова</string>
+    <string name="please_check_your_internet_settings">Пожалуйста, проверьте настройки Интернета</string>
 </resources>

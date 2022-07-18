@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:fontFamily="@font/poppins_semi_bold"
-        android:text="@string/choose_your_prefered_language"
+        android:text="@string/choose_your_preffered_language"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
@@ -98,7 +98,7 @@
             android:foreground="?android:selectableItemBackground"
             android:paddingVertical="16dp"
             android:paddingStart="24dp"
-            android:text="🇷🇺 Русский"
+            android:text="🇷🇺  Русский"
             android:textColor="@color/grey_darker"
             android:textSize="20sp" />
     </RadioGroup>
@@ -113,7 +113,7 @@
         android:background="@drawable/shape_button"
         android:fontFamily="@font/poppins_medium"
         android:foreground="@drawable/ripple_corner_36"
-        android:paddingVertical="16dp"
+        android:paddingVertical="12dp"
         android:text="@string/select"
         android:textAllCaps="false"
         android:textColor="@color/white"

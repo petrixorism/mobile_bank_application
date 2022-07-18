@@ -2,5 +2,19 @@
 <resources>
     <string name="app_name">GITA bank</string>
     <string name="select">Tanlash</string>
-    <string name="choose_your_prefered_language">O\'zingizga mos tilni tanlang</string>
+    <string name="choose_your_preffered_language">O\'zingizga mos tilni tanlang</string>
+    <string name="select_language">Iltimos biror tilni tanlang</string>
+    <string name="language">Til</string>
+    <string name="title1">Istalgan bank tizimidan to\'lovlarni qabul qiling</string>
+    <string name="title2">Dunyoga mashhur onlayn-do\'konlarda xarid qiling</string>
+    <string name="title3">Komissiyasiz pul o\'tkazmalari</string>
+    <string name="subtitle1">Bank kartangizni ulang va tanlangan valyutada hisoblar yarating.</string>
+    <string name="subtitle2">Ommabop narsalar, katta chegirmalar - bularning barchasi siz uchun mavjud bo\'ladi.</string>
+    <string name="subtitle3">Komissiya to\'lamasdan pul yuboring va oling.</string>
+    <string name="next">Keyingi →</string>
+    <string name="start">Boshlash</string>
+    <string name="skip">O\'tkazib yuborish</string>
+    <string name="no_internet_connection">Internet aloqasi yo\'q</string>
+    <string name="try_again">Qayta urinib ko\'rish</string>
+    <string name="please_check_your_internet_settings">Iltimos, internet sozlamalaringizni tekshiring</string>
 </resources>
