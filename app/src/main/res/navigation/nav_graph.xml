@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/onboardParentFragment">
+    app:startDestination="@id/fragmentSelectLang">
 
     <fragment
         android:id="@+id/fragmentSelectLang"
         android:name="uz.gita.myapplication.ui.screen.SelectLangFragment"
         android:label="FragmentSelectLang"
-        tools:layout="@layout/select_language_fragment" />
+        tools:layout="@layout/select_language_fragment" >
+        <action
+            android:id="@+id/action_fragmentSelectLang_to_onboardParentFragment"
+            app:destination="@id/onboardParentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onboardParentFragment"
         android:name="uz.gita.myapplication.ui.screen.OnboardParentFragment"
