@@ -1,22 +1,34 @@
 package uz.gita.myapplication.ui.screen
 
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import ru.ldralighieri.corbind.view.clicks
+import ru.ldralighieri.corbind.widget.textChanges
 import uz.gita.myapplication.R
 import uz.gita.myapplication.data.source.remote.request.RegisterRequest
+import uz.gita.myapplication.data.source.remote.request.VerifyRequest
 import uz.gita.myapplication.databinding.FragmentRegisterBinding
 import uz.gita.myapplication.ui.viewmodel.RegisterViewModel
+import uz.gita.myapplication.util.animation.Animator
+import uz.gita.myapplication.util.changeVisibility
 import uz.gita.myapplication.util.showToast
 
 @AndroidEntryPoint
@@ -24,29 +36,26 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private val binding by viewBinding(FragmentRegisterBinding::bind)
     private val viewModel: RegisterViewModel by viewModels()
+    private val animator by lazy { Animator() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         lifecycleScope.launch {
             viewModel.loadingFlow.collect {
-                showToast(it.toString())
-                Log.d("RETROFIT", "$it")
+                binding.progressCircular.isVisible = it
             }
         }
+
 
         lifecycleScope.launch {
             viewModel.errorFlow.collect {
                 showToast(it)
-                Log.d("RETROFIT", it)
-
             }
         }
 
         lifecycleScope.launch {
             viewModel.successFlow.collect {
-                showToast(it)
-                Log.d("RETROFIT", it)
-
+                openVerifyBottomSheetDialog("+998${binding.phoneNumberEt.text.toString()}")
             }
         }
 
@@ -54,17 +63,11 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             .clicks()
             .onEach {
                 viewModel.register(
-//                    RegisterRequest(
-//                        binding.nameEt.text.toString(),
-//                        binding.lastNameEt.text.toString(),
-//                        "+998${binding.phoneNumberEt.text.toString()}",
-//                        binding.passwordTet.text.toString(),
-//                    )
                     RegisterRequest(
-                        "Ravshan",
-                        "Baxranov",
-                        "+998991234545",
-                        "123456789",
+                        binding.nameEt.text.toString(),
+                        binding.lastNameEt.text.toString(),
+                        "+998${binding.phoneNumberEt.text.toString()}",
+                        binding.passwordTet.text.toString(),
                     )
                 )
             }
@@ -73,4 +76,55 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
 
     }
+
+    //-- BottomSheet Dialog--//
+
+    @SuppressLint("CutPasteId", "InflateParams", "SetTextI18n")
+    private fun openVerifyBottomSheetDialog(phoneNumber: String) {
+        val dialog = BottomSheetDialog(this.requireContext())
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        val view = layoutInflater.inflate(R.layout.bottomsheet_verify, null)
+        dialog.setCancelable(true)
+        dialog.setContentView(view)
+
+        val smsCode = dialog.findViewById<EditText>(R.id.smscode)!!
+        val verificationTv = dialog.findViewById<TextView>(R.id.verifytext)!!
+        val numberTv = dialog.findViewById<TextView>(R.id.phone_number_bottom_sheet)!!
+
+        lifecycleScope.launch {
+            viewModel.verifiedFlow.collect() {
+                dialog.dismiss()
+                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToMainFragment())
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.errorVerifyFlow.collect() {
+                animator.shake(smsCode)
+                verificationTv.setText("Invalid code")
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.loadingVerifyFlow.collect() {
+                if (it) {
+                    verificationTv.text = "Checking..."
+                }
+            }
+        }
+
+
+        numberTv.text = phoneNumber
+        smsCode.textChanges()
+            .onEach {
+                if (it.length == 6) {
+                    viewModel.verify(VerifyRequest(phoneNumber, it.toString()))
+                }
+            }
+            .flowWithLifecycle(lifecycle)
+            .launchIn(lifecycleScope)
+
+        dialog.show()
+    }
+
 }
