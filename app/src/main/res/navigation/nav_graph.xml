@@ -16,18 +16,18 @@
             app:destination="@id/onboardParentFragment"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_fragmentSelectLang_to_mainFragment"
-            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/onboardParentFragment"
         android:name="uz.gita.myapplication.ui.screen.OnboardParentFragment"
         android:label="OnboardParentFragment"
-        tools:layout="@layout/fragment_onboarding_parent" >
+        tools:layout="@layout/fragment_onboarding_parent">
         <action
             android:id="@+id/action_onboardParentFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_onboardParentFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -38,11 +38,14 @@
             android:id="@+id/action_splashFragment_to_fragmentSelectLang"
             app:destination="@id/fragmentSelectLang" />
         <action
-            android:id="@+id/action_splashFragment_to_noInternetFragment2"
-            app:destination="@id/noInternetFragment2" />
-        <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_checkPinFragment"
+            app:destination="@id/checkPinFragment" />
     </fragment>
 
     <fragment
@@ -54,5 +57,25 @@
         android:id="@+id/mainFragment"
         android:name="uz.gita.myapplication.ui.screen.MainFragment"
         android:label="fragment_pin"
-        tools:layout="@layout/fragment_pin" />
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="uz.gita.myapplication.ui.screen.PinFragment"
+        android:label="PinFragment"
+        tools:layout="@layout/fragment_pin" >
+        <action
+            android:id="@+id/action_pinFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_noInternetFragment"
+        app:destination="@id/noInternetFragment2" />
+    <fragment
+        android:id="@+id/checkPinFragment"
+        android:name="uz.gita.myapplication.ui.screen.CheckPinFragment"
+        android:label="CheckPinFragment" >
+        <action
+            android:id="@+id/action_checkPinFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

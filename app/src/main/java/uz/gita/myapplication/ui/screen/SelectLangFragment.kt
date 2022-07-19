@@ -11,7 +11,11 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import ru.ldralighieri.corbind.view.clicks
 import uz.gita.myapplication.R
 import uz.gita.myapplication.databinding.FragmentSelectLanguageBinding
 import uz.gita.myapplication.ui.viewmodel.SelectLanguageViewModel
@@ -35,7 +39,6 @@ class SelectLangFragment : Fragment(R.layout.fragment_select_language) {
         lifecycleScope.launch {
             viewModel.startFlow.collect {
                 if (it) findNavController().navigate(SelectLangFragmentDirections.actionFragmentSelectLangToOnboardParentFragment())
-                else findNavController().navigate(SelectLangFragmentDirections.actionFragmentSelectLangToMainFragment())
             }
         }
 
@@ -55,9 +58,10 @@ class SelectLangFragment : Fragment(R.layout.fragment_select_language) {
             requireActivity().onBackPressed()
         }
 
-        binding.selectBtn.setOnClickListener {
-            viewModel.start()
-        }
+        binding.selectBtn.clicks()
+            .onEach {
+                viewModel.start()
+            }.debounce(2000L).launchIn(lifecycleScope)
 
     }
 

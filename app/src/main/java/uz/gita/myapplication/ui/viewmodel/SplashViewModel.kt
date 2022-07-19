@@ -1,6 +1,5 @@
 package uz.gita.myapplication.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,16 +19,23 @@ class SplashViewModel @Inject constructor(
 
     private val _isFirstTimeStateFlow = Channel<Unit>()
     private val _splashChannel = Channel<Unit>()
+    private val _checkPinChannel = Channel<Unit>()
+    private val _setPinChannel = Channel<Unit>()
     private val _languageStateFlow = Channel<String>()
     private val _noConnectionChannel = Channel<Unit>()
 
     val noConnectionFlow: Flow<Unit> = _noConnectionChannel.receiveAsFlow()
-    val splashFlow = _splashChannel.receiveAsFlow()
-    val languageFlow = _languageStateFlow.receiveAsFlow()
+    val splashFlow: Flow<Unit> = _splashChannel.receiveAsFlow()
+    val checkPinFlow: Flow<Unit> = _checkPinChannel.receiveAsFlow()
+    val setPinFlow: Flow<Unit> = _setPinChannel.receiveAsFlow()
+    val languageFlow: Flow<String> = _languageStateFlow.receiveAsFlow()
     val isFirstTimeFlow: Flow<Unit> = _isFirstTimeStateFlow.receiveAsFlow()
 
+
     fun check() {
+
         viewModelScope.launch {
+
             delay(2000L)
             if (!isConnected()) {
                 _noConnectionChannel.send(Unit)
@@ -37,12 +43,21 @@ class SplashViewModel @Inject constructor(
                 if (pref.isFirstTime) {
                     _isFirstTimeStateFlow.send(Unit)
                 } else {
-                    _splashChannel.send(Unit)
+                    if (pref.isSkippedPin) {
+                        _setPinChannel.send(Unit)
+                    } else {
+                        _checkPinChannel.send(Unit)
+                    }
                 }
             }
         }
     }
 
+    fun languageCheck() {
+        viewModelScope.launch {
+            _languageStateFlow.send(pref.language)
+        }
+    }
 
 
 }

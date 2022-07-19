@@ -85,6 +85,9 @@ dependencies {
     //Lottie animation
     implementation 'com.airbnb.android:lottie:4.2.2'
 
+    // dots indicator for viewPager
     implementation 'com.tbuonomo:dotsindicator:4.3'
 
+    //Corbind
+    implementation 'ru.ldralighieri.corbind:corbind:1.5.5'
 }

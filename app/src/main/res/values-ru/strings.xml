@@ -5,7 +5,7 @@
     <string name="choose_your_preffered_language">Выберите предпочитаемый язык</string>
     <string name="select_language">Пожалуйста, выберите язык</string>
     <string name="language">Язык</string>
-    <string name="title1">Делайте покупки в всемирно известных интернет-магазинах</string>
+    <string name="title1">Прием платежей из любой банковской системы</string>
     <string name="title2">Делайте покупки в всемирно известных интернет-магазинах</string>
     <string name="title3">Переводы без комиссии</string>
     <string name="subtitle1">Подключайте свою банковскую карту и создавайте счета в выбранной валюте.</string>
@@ -17,4 +17,10 @@
     <string name="no_internet_connection">Нет соединения с интернетом</string>
     <string name="try_again">Попробуйте снова</string>
     <string name="please_check_your_internet_settings">Пожалуйста, проверьте настройки Интернета</string>
+    <string name="you_will_get_use_this_to_login_next_time">Вы будете использовать это для входа в следующий раз</string>
+    <string name="set_your_pin">Установите свой PIN-код</string>
+    <string name="set_pin">Сохранять</string>
+    <string name="pin_length_error">PIN-код неполный</string>
+    <string name="enter_your_pin">PIN код</string>
+    <string name="enter">Продолжать</string>
 </resources>

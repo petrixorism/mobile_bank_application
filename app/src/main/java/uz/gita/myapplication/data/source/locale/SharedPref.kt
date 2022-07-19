@@ -23,10 +23,18 @@ class SharedPref(context: Context) {
         set(value) = pref.edit().putString("LANGUAGE", value).apply()
         get() = pref.getString("LANGUAGE", "en")!!
 
+    var pin: String
+        set(value) = pref.edit().putString("PIN", value).apply()
+        get() = pref.getString("PIN", "")!!
+
 
     var isFirstTime: Boolean
         set(value) = pref.edit().putBoolean("IS_FIRST_TIME", value).apply()
         get() = pref.getBoolean("IS_FIRST_TIME", true)
+
+    var isSkippedPin: Boolean
+        set(value) = pref.edit().putBoolean("IS_SKIPPED_PIN", value).apply()
+        get() = pref.getBoolean("IS_SKIPPED_PIN", true)
 
 
 }

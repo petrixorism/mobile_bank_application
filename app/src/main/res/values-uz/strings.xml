@@ -17,4 +17,10 @@
     <string name="no_internet_connection">Internet aloqasi yo\'q</string>
     <string name="try_again">Qayta urinib ko\'rish</string>
     <string name="please_check_your_internet_settings">Iltimos, internet sozlamalaringizni tekshiring</string>
+    <string name="you_will_get_use_this_to_login_next_time">Keyingi safar tizimga kirish uchun undan foydalanasiz</string>
+    <string name="set_your_pin">PIN kodingizni o\'rnating</string>
+    <string name="set_pin">Saqlash</string>
+    <string name="pin_length_error">PIN kod to\'liq emas</string>
+    <string name="enter_your_pin">PIN kod</string>
+    <string name="enter">Davom etish</string>
 </resources>
