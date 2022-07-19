@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import uz.gita.myapplication.R
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 

@@ -88,6 +88,10 @@ dependencies {
     // dots indicator for viewPager
     implementation 'com.tbuonomo:dotsindicator:4.3'
 
-    //Corbind
+    //CorBind
     implementation 'ru.ldralighieri.corbind:corbind:1.5.5'
+
+    // MaskedEditText
+    implementation 'com.github.santalu:maskara:1.0.0'
+
 }

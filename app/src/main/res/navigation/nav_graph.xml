@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/registerFragment">
 
 
     <fragment
@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_onboardParentFragment_to_pinFragment"
             app:destination="@id/pinFragment" />
+        <action
+            android:id="@+id/action_onboardParentFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -57,12 +60,12 @@
         android:id="@+id/mainFragment"
         android:name="uz.gita.myapplication.ui.screen.MainFragment"
         android:label="fragment_pin"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/pinFragment"
         android:name="uz.gita.myapplication.ui.screen.PinFragment"
         android:label="PinFragment"
-        tools:layout="@layout/fragment_pin" >
+        tools:layout="@layout/fragment_pin">
         <action
             android:id="@+id/action_pinFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -73,9 +76,31 @@
     <fragment
         android:id="@+id/checkPinFragment"
         android:name="uz.gita.myapplication.ui.screen.CheckPinFragment"
-        android:label="CheckPinFragment" >
+        android:label="CheckPinFragment"
+        tools:layout="@layout/fragment_check_pin">
         <action
             android:id="@+id/action_checkPinFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="uz.gita.myapplication.ui.screen.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="uz.gita.myapplication.ui.screen.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

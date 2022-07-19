@@ -27,6 +27,14 @@ class SharedPref(context: Context) {
         set(value) = pref.edit().putString("PIN", value).apply()
         get() = pref.getString("PIN", "")!!
 
+    var accessToken: String
+        set(value) = pref.edit().putString("ACCESS_TOKEN", value).apply()
+        get() = pref.getString("ACCESS_TOKEN", "")!!
+
+    var refreshToken: String
+        set(value) = pref.edit().putString("REFRESH_TOKEN", value).apply()
+        get() = pref.getString("REFRESH_TOKEN", "")!!
+
 
     var isFirstTime: Boolean
         set(value) = pref.edit().putBoolean("IS_FIRST_TIME", value).apply()

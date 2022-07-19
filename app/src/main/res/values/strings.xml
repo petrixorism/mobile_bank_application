@@ -22,4 +22,9 @@
     <string name="pin_length_error">PIN code is incomplete</string>
     <string name="enter_your_pin">PIN code</string>
     <string name="enter">Continue</string>
+    <string name="parolni_unutdingizmi">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="do_you_have_already_account">Do you have already account?</string>
+    <string name="do_you_want_to_create_new_account">Do you want to create new account?</string>
 </resources>

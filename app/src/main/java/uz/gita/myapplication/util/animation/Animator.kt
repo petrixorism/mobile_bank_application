@@ -1,10 +1,12 @@
 package uz.gita.myapplication.util.animation
 
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.View
 import android.view.animation.BounceInterpolator
 import android.widget.ImageView
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+
 
 class Animator {
 
@@ -22,17 +24,10 @@ class Animator {
     }
 
     fun shake(view: View) {
-
-        ValueAnimator.ofFloat(0f, 1f).apply {
-            addUpdateListener {
-                view.x += animatedValue as Float
-            }
-            interpolator = BounceInterpolator()
-            duration = 100L
-            start()
-            reverse()
-        }
-
+        val rotate = ObjectAnimator.ofFloat(view, "translationX", 0f, 20f, 0f, -20f, 0f)
+        rotate.repeatCount = 1
+        rotate.duration = 200
+        rotate.start()
     }
 
 }
