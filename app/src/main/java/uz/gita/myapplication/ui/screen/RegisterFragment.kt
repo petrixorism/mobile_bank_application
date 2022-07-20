@@ -1,10 +1,12 @@
 package uz.gita.myapplication.ui.screen
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -29,6 +31,7 @@ import uz.gita.myapplication.databinding.FragmentRegisterBinding
 import uz.gita.myapplication.ui.viewmodel.RegisterViewModel
 import uz.gita.myapplication.util.animation.Animator
 import uz.gita.myapplication.util.showToast
+
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment(R.layout.fragment_register) {
@@ -92,8 +95,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         lifecycleScope.launch {
             viewModel.verifiedFlow.collect() {
+                hideKeyboard(requireActivity())
                 dialog.dismiss()
-                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToMainFragment())
+                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToSetPinFragment())
             }
         }
 
@@ -127,4 +131,17 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         dialog.show()
     }
 
+
+    //--Functions--//
+    private fun hideKeyboard(activity: Activity) {
+        val imm: InputMethodManager =
+            activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 }

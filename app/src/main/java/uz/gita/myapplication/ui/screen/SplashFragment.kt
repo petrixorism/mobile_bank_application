@@ -2,6 +2,7 @@ package uz.gita.myapplication.ui.screen
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -23,10 +24,22 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     private val localeHelper by lazy { LocaleHelper(requireContext()) }
     private val animator by lazy { Animator() }
 
-    private var recreated = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+
+        lifecycleScope.launch {
+            viewModel.loginFlow.collect {
+                viewModel.languageCheck()
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.loadingFlow.collect {
+                binding.loadingPb.isVisible = it
+            }
+        }
 
         lifecycleScope.launch {
             viewModel.selectLanguageFlow.collect {
@@ -34,12 +47,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToFragmentSelectLang())
             }
         }
-        lifecycleScope.launch {
-            viewModel.setPinFlow.collect {
-                viewModel.languageCheck()
-                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToPinFragment())
-            }
-        }
+
         lifecycleScope.launch {
             viewModel.checkPinFlow.collect {
                 viewModel.languageCheck()
@@ -57,7 +65,6 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
             viewModel.languageFlow.collect() {
                 localeHelper.selectLang(it)
                 requireActivity().recreate()
-                recreated = true
             }
         }
 
@@ -67,6 +74,8 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToMainFragment())
             }
         }
+
+
         animator.fadeOut(binding.logo)
     }
 

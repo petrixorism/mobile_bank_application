@@ -22,20 +22,19 @@ class SplashViewModel @Inject constructor(
 
     private val _selectLanguageChannel = Channel<Unit>()
     private val _loginChannel = Channel<Unit>()
-    private val _loadingChannel = Channel<Unit>()
+    private val _loadingChannel = Channel<Boolean>()
     private val _mainScreenChannel = Channel<Unit>()
     private val _checkPinChannel = Channel<Unit>()
-    private val _setPinChannel = Channel<Unit>()
     private val _languageChannel = Channel<String>()
     private val _noConnectionChannel = Channel<Unit>()
 
     val noConnectionFlow: Flow<Unit> = _noConnectionChannel.receiveAsFlow()
     val mainScreenFlow: Flow<Unit> = _mainScreenChannel.receiveAsFlow()
     val checkPinFlow: Flow<Unit> = _checkPinChannel.receiveAsFlow()
-    val setPinFlow: Flow<Unit> = _setPinChannel.receiveAsFlow()
     val selectLanguageFlow: Flow<Unit> = _selectLanguageChannel.receiveAsFlow()
     val loginFlow: Flow<Unit> = _loginChannel.receiveAsFlow()
-    val loadingFlow: Flow<Unit> = _loadingChannel.receiveAsFlow()
+    val loadingFlow: Flow<Boolean> = _loadingChannel.receiveAsFlow()
+    val languageFlow: Flow<String> = _languageChannel.receiveAsFlow()
 
 
     fun check() {
@@ -53,14 +52,14 @@ class SplashViewModel @Inject constructor(
                                 if (pref.isSkippedPin) {
                                     _mainScreenChannel.send(Unit)
                                 } else {
-                                    _setPinChannel.send(Unit)
+                                    _checkPinChannel.send(Unit)
                                 }
                             }
                             is MainResult.Message -> {
                                 _loginChannel.send(Unit)
                             }
                             is MainResult.Loading -> {
-
+                                _loadingChannel.send(result.isLoading)
                             }
                         }
                     }

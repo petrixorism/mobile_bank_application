@@ -28,5 +28,6 @@
     <string name="register">Register</string>
     <string name="do_you_have_already_account">Do you have already account?</string>
     <string name="do_you_want_to_create_new_account">Do you want to create new account?</string>
-    <string name="verify" />
+    <string name="verify">Verify</string>
+    <string name="pin_error">Invalid pin code</string>
 </resources>

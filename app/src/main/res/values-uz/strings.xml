@@ -29,4 +29,5 @@
     <string name="do_you_have_already_account">Do you have already account?</string>
     <string name="do_you_want_to_create_new_account">Do you want to create new account?</string>
     <string name="verify" />
+    <string name="pin_error">PIN kod xato</string>
 </resources>

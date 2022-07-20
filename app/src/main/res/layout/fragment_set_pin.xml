@@ -93,10 +93,10 @@
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_btn2" />
+        app:layout_constraintTop_toBottomOf="@+id/back_btn" />
 
     <Button
-        android:id="@+id/back_btn2"
+        android:id="@+id/back_btn"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="24dp"

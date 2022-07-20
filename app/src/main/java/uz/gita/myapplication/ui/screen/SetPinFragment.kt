@@ -12,20 +12,16 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import ru.ldralighieri.corbind.view.clicks
 import uz.gita.myapplication.R
-import uz.gita.myapplication.databinding.FragmentPinBinding
+import uz.gita.myapplication.databinding.FragmentSetPinBinding
 import uz.gita.myapplication.ui.viewmodel.SetPinViewModel
 import uz.gita.myapplication.util.showToast
 
 @AndroidEntryPoint
-class PinFragment : Fragment(R.layout.fragment_pin) {
+class SetPinFragment : Fragment(R.layout.fragment_set_pin) {
 
-    private val binding by viewBinding(FragmentPinBinding::bind)
+    private val binding by viewBinding(FragmentSetPinBinding::bind)
     private val viewModel: SetPinViewModel by viewModels()
     private var pinCode = ""
 
@@ -39,24 +35,13 @@ class PinFragment : Fragment(R.layout.fragment_pin) {
         }
         lifecycleScope.launch {
             viewModel.successFlow.collect() {
-                findNavController().navigate(PinFragmentDirections.actionPinFragmentToMainFragment())
+                findNavController().navigate(SetPinFragmentDirections.actionPinFragmentToMainFragment())
             }
         }
 
 
-        binding.backBtn2.setOnClickListener {
+        binding.backBtn.setOnClickListener {
             requireActivity().onBackPressed()
-        }
-        getDigits().forEach { button ->
-            button.setOnClickListener {
-                val pin = getPins().filter { pin ->
-                    pin.text.toString().isBlank()
-                }
-                if (pin.isNotEmpty() && pinCode.length < 4) {
-                    pin.first().text = "*"
-                    pinCode += button.text
-                }
-            }
         }
         binding.backspaceBtn.setOnClickListener {
             val pins = getPins().filter { pin ->
@@ -71,13 +56,24 @@ class PinFragment : Fragment(R.layout.fragment_pin) {
             }
         }
         binding.skipTv.setOnClickListener {
-            findNavController().navigate(PinFragmentDirections.actionPinFragmentToMainFragment())
+            viewModel.skipPin()
         }
-        binding.saveBtn.clicks()
-            .onEach {
-                viewModel.setPin(pinCode.trim())
-            }.debounce(1000L)
-            .launchIn(lifecycleScope)
+        binding.saveBtn.setOnClickListener {
+            viewModel.setPin(pinCode.trim())
+        }
+
+
+        getDigits().forEach { button ->
+            button.setOnClickListener {
+                val pin = getPins().filter { pin ->
+                    pin.text.toString().isBlank()
+                }
+                if (pin.isNotEmpty() && pinCode.length < 4) {
+                    pin.first().text = "*"
+                    pinCode += button.text
+                }
+            }
+        }
 
 
     }

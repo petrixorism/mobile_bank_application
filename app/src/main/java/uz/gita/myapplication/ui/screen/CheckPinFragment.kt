@@ -35,7 +35,7 @@ class CheckPinFragment : Fragment(R.layout.fragment_check_pin) {
 
         lifecycleScope.launch {
             viewModel.errorFlow.collect {
-                showToast(getString(R.string.pin_length_error))
+                showToast(getString(R.string.pin_error))
                 getPins().forEach {
                     animator.shake(it)
                 }
@@ -51,6 +51,7 @@ class CheckPinFragment : Fragment(R.layout.fragment_check_pin) {
         binding.backBtn2.setOnClickListener {
             requireActivity().onBackPressed()
         }
+
 
         getDigits().forEach { button ->
             button.setOnClickListener {

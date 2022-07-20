@@ -1,5 +1,6 @@
 package uz.gita.myapplication.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,11 +27,11 @@ class OnboardViewModel @Inject constructor(
 
 
     fun start() {
-
         viewModelScope.launch {
+
             if (isConnected()) {
-                _startChannel.send(Unit)
                 pref.isFirstTime = false
+                _startChannel.send(Unit)
             } else {
                 _connectionStateFlow.emit(false)
             }

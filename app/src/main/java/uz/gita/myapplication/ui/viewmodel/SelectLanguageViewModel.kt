@@ -65,7 +65,6 @@ class SelectLanguageViewModel @Inject constructor(private val pref: SharedPref) 
         viewModelScope.launch {
             if (pref.isFirstTime) {
                 _startChannel.send(true)
-                pref.isFirstTime = false
             } else {
                 _startChannel.send(false)
             }

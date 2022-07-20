@@ -21,6 +21,14 @@ class SetPinViewModel @Inject constructor(
     val errorFlow: Flow<Unit> = _errorChannel.receiveAsFlow()
     val successFlow: Flow<Unit> = _successChannel.receiveAsFlow()
 
+    fun skipPin() {
+        viewModelScope.launch{
+            pref.isSkippedPin = true
+            _successChannel.send(Unit)
+        }
+
+    }
+
     fun setPin(pin: String) {
         viewModelScope.launch {
             if (pin.length == 4) {

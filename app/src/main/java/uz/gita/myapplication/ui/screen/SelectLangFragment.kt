@@ -60,7 +60,7 @@ class SelectLangFragment : Fragment(R.layout.fragment_select_language) {
 
         binding.selectBtn.clicks()
             .onEach {
-                viewModel.start()
+                findNavController().navigate(SelectLangFragmentDirections.actionFragmentSelectLangToOnboardParentFragment())
             }.debounce(2000L).launchIn(lifecycleScope)
 
     }
