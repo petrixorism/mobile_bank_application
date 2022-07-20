@@ -29,7 +29,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
 
         lifecycleScope.launch {
-            viewModel.isFirstTimeFlow.collect {
+            viewModel.selectLanguageFlow.collect {
                 viewModel.languageCheck()
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToFragmentSelectLang())
             }
@@ -62,7 +62,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         }
 
         lifecycleScope.launch {
-            viewModel.splashFlow.collect() {
+            viewModel.mainScreenFlow.collect() {
                 viewModel.languageCheck()
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToMainFragment())
             }

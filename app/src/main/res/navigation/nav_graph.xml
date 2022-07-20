@@ -23,12 +23,6 @@
         android:label="OnboardParentFragment"
         tools:layout="@layout/fragment_onboarding_parent">
         <action
-            android:id="@+id/action_onboardParentFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_onboardParentFragment_to_pinFragment"
-            app:destination="@id/pinFragment" />
-        <action
             android:id="@+id/action_onboardParentFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
@@ -44,11 +38,11 @@
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_pinFragment"
-            app:destination="@id/pinFragment" />
-        <action
             android:id="@+id/action_splashFragment_to_checkPinFragment"
             app:destination="@id/checkPinFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
@@ -62,7 +56,7 @@
         android:label="fragment_pin"
         tools:layout="@layout/fragment_login" />
     <fragment
-        android:id="@+id/pinFragment"
+        android:id="@+id/setPinFragment"
         android:name="uz.gita.myapplication.ui.screen.PinFragment"
         android:label="PinFragment"
         tools:layout="@layout/fragment_pin">
@@ -93,6 +87,9 @@
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_setPinFragment"
+            app:destination="@id/setPinFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

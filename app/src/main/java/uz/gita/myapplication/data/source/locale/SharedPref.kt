@@ -36,6 +36,11 @@ class SharedPref(context: Context) {
         get() = pref.getString("REFRESH_TOKEN", "")!!
 
 
+    var phone: String
+        set(value) = pref.edit().putString("PHONE", value).apply()
+        get() = pref.getString("PHONE", "")!!
+
+
     var isFirstTime: Boolean
         set(value) = pref.edit().putBoolean("IS_FIRST_TIME", value).apply()
         get() = pref.getBoolean("IS_FIRST_TIME", true)

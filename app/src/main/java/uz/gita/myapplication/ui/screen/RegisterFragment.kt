@@ -28,7 +28,6 @@ import uz.gita.myapplication.data.source.remote.request.VerifyRequest
 import uz.gita.myapplication.databinding.FragmentRegisterBinding
 import uz.gita.myapplication.ui.viewmodel.RegisterViewModel
 import uz.gita.myapplication.util.animation.Animator
-import uz.gita.myapplication.util.changeVisibility
 import uz.gita.myapplication.util.showToast
 
 @AndroidEntryPoint
@@ -101,7 +100,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         lifecycleScope.launch {
             viewModel.errorVerifyFlow.collect() {
                 animator.shake(smsCode)
-                verificationTv.setText("Invalid code")
+                verificationTv.text = "Invalid code"
             }
         }
 
@@ -109,10 +108,11 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             viewModel.loadingVerifyFlow.collect() {
                 if (it) {
                     verificationTv.text = "Checking..."
+                } else {
+                    verificationTv.text = phoneNumber
                 }
             }
         }
-
 
         numberTv.text = phoneNumber
         smsCode.textChanges()

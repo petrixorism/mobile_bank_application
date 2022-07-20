@@ -4,14 +4,16 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uz.gita.myapplication.data.api.AuthApi
 import uz.gita.myapplication.data.source.locale.SharedPref
+import uz.gita.myapplication.data.source.remote.request.PhoneRequest
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://1019-87-237-237-81.eu.ngrok.io"
+private const val BASE_URL = "https://4dd3-87-237-237-81.eu.ngrok.io"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -22,10 +24,11 @@ object NetworkModule {
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BODY)
 
+
     @[Provides Singleton]
     fun providesClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        pref: SharedPref
+        pref: SharedPref,
     ): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
@@ -36,6 +39,7 @@ object NetworkModule {
                     .build()
                 it.proceed(request)
             }
+            .authenticator(TokenAuthenticator(SharedPref.getInstance()))
             .build()
 
 
@@ -45,5 +49,50 @@ object NetworkModule {
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    class TokenAuthenticator(
+        private val pref: SharedPref
+    ) : Authenticator {
+
+
+        val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        private val retrofit = Retrofit.Builder()
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(loggingInterceptor)
+                    .build()
+            )
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        private val api = retrofit.create(AuthApi::class.java)
+
+
+        override fun authenticate(route: Route?, response: Response): Request? {
+
+            val result =
+                api.refreshForEachRequest(pref.refreshToken, PhoneRequest(pref.phone)).execute()
+            if (result.code() == 401 || result.body() == null) {
+                pref.refreshToken = ""
+                pref.accessToken = ""
+                return null
+            }
+
+            val tokenData = result.body()!!.data
+
+            pref.accessToken = tokenData!!.accessToken
+            pref.refreshToken = tokenData.refreshToken
+
+            return response.request
+                .newBuilder()
+                .addHeader("token", tokenData.accessToken)
+                .build()
+
+        }
+
+    }
 
 }
