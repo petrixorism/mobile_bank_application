@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,8 +12,10 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import uz.gita.myapplication.data.model.MainResult
 import uz.gita.myapplication.data.source.remote.request.RegisterRequest
+import uz.gita.myapplication.data.source.remote.request.ResendRequest
 import uz.gita.myapplication.data.source.remote.request.VerifyRequest
 import uz.gita.myapplication.domain.repository.AuthRepository
+import uz.gita.myapplication.util.isConnected
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,22 +37,36 @@ class RegisterViewModel @Inject constructor(
     val loadingFlow: Flow<Boolean> = _loadingStateFlow.asStateFlow()
     val loadingVerifyFlow: Flow<Boolean> = _loadingVerifyStateFlow.asStateFlow()
 
+    private val _isConnectedChannel = Channel<Boolean>()
+    val isConnectedFlow: Flow<Boolean> = _isConnectedChannel.receiveAsFlow()
+
+
+    fun checkInternet() {
+        viewModelScope.launch {
+            delay(500L)
+            _isConnectedChannel.send(isConnected())
+        }
+    }
+
     fun register(registerRequest: RegisterRequest) {
         viewModelScope.launch {
-            repository.register(registerRequest).collect() { result ->
-                when (result) {
-                    is MainResult.Success -> {
-                        _successChannel.send(result.data.toString())
-                    }
-                    is MainResult.Message -> {
-                        _errorChannel.send(result.message)
-                    }
-                    is MainResult.Loading -> {
-                        _loadingStateFlow.emit(result.isLoading)
+            if (!isConnected()) {
+                _isConnectedChannel.send(isConnected())
+            } else {
+                repository.register(registerRequest).collect() { result ->
+                    when (result) {
+                        is MainResult.Success -> {
+                            _successChannel.send(result.data.toString())
+                        }
+                        is MainResult.Message -> {
+                            _errorChannel.send(result.message)
+                        }
+                        is MainResult.Loading -> {
+                            _loadingStateFlow.emit(result.isLoading)
+                        }
                     }
                 }
             }
-
         }
     }
 
@@ -76,4 +93,30 @@ class RegisterViewModel @Inject constructor(
 
     }
 
+
+    fun resend(resendRequest: ResendRequest) {
+        viewModelScope.launch {
+
+            if (resendRequest.phone.length < 13) {
+                _errorChannel.send("Phone number's length must be 9")
+            } else if (resendRequest.password.length < 6) {
+                _errorChannel.send("Password's length must be longer than 6")
+            } else {
+                repository.resend(resendRequest).collect() { result ->
+                    when (result) {
+                        is MainResult.Success -> {
+                            _successChannel.send(result.data.toString())
+                        }
+                        is MainResult.Message -> {
+                            _errorChannel.send(result.message)
+                        }
+                        is MainResult.Loading -> {
+                            _loadingStateFlow.emit(result.isLoading)
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }

@@ -5,6 +5,7 @@ import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -26,6 +27,7 @@ import ru.ldralighieri.corbind.view.clicks
 import ru.ldralighieri.corbind.widget.textChanges
 import uz.gita.myapplication.R
 import uz.gita.myapplication.data.source.remote.request.RegisterRequest
+import uz.gita.myapplication.data.source.remote.request.ResendRequest
 import uz.gita.myapplication.data.source.remote.request.VerifyRequest
 import uz.gita.myapplication.databinding.FragmentRegisterBinding
 import uz.gita.myapplication.ui.viewmodel.RegisterViewModel
@@ -41,6 +43,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val animator by lazy { Animator() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        lifecycleScope.launch{
+            viewModel.isConnectedFlow.collect{
+                if (!it) findNavController().navigate(RegisterFragmentDirections.actionGlobalNoInternetFragment())
+            }
+        }
 
         lifecycleScope.launch {
             viewModel.loadingFlow.collect {
@@ -92,12 +100,42 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val smsCode = dialog.findViewById<EditText>(R.id.smscode)!!
         val verificationTv = dialog.findViewById<TextView>(R.id.verifytext)!!
         val numberTv = dialog.findViewById<TextView>(R.id.phone_number_bottom_sheet)!!
+        val resendTv = dialog.findViewById<TextView>(R.id.resend_btn)!!
+
+        resendTv.setOnClickListener {
+            viewModel.resend(
+                ResendRequest(
+                    password = binding.passwordTet.text.toString(),
+                    phone = phoneNumber
+                )
+            )
+        }
+
+
+        dialog.show()
+
+        object : CountDownTimer(30000, 1000) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                resendTv.text = "Resend : " + millisUntilFinished / 1000
+            }
+
+            override fun onFinish() {
+                resendTv.isEnabled = true
+                resendTv.text = "Resend Code"
+            }
+        }.start()
 
         lifecycleScope.launch {
             viewModel.verifiedFlow.collect() {
                 hideKeyboard(requireActivity())
-                dialog.dismiss()
-                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToSetPinFragment())
+                if (dialog.isShowing) {
+                    dialog.dismiss()
+                    findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToSetPinFragment())
+                } else {
+                    findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToSetPinFragment())
+
+                }
             }
         }
 
@@ -113,7 +151,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 if (it) {
                     verificationTv.text = "Checking..."
                 } else {
-                    verificationTv.text = phoneNumber
+                    verificationTv.text = getString(R.string.we_sent_code)
                 }
             }
         }
@@ -128,7 +166,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             .flowWithLifecycle(lifecycle)
             .launchIn(lifecycleScope)
 
-        dialog.show()
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.checkInternet()
     }
 
 

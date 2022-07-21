@@ -29,4 +29,6 @@
     <string name="do_you_want_to_create_new_account">Do you want to create new account?</string>
     <string name="verify">We have sent the code verification to your mobile number.</string>
     <string name="pin_error">Invalid pin code</string>
+    <string name="password_updated">Password has been updated</string>
+    <string name="we_sent_code">We have sent the code verification to your mobile number.</string>
 </resources>

@@ -1,5 +1,6 @@
 package uz.gita.myapplication.data.repository
 
+import android.util.Log
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -105,9 +106,15 @@ class AuthRepositoryImpl @Inject constructor(
                 emit(MainResult.Loading(false))
 
             } else {
-                result.body()?.let {
-                    emit(MainResult.Message(it.message!!))
-                }
+                Log.d("TAGDF", "refresh error")
+
+                val errorResponse = Gson().fromJson(
+                    result.errorBody()?.charStream(),
+                    MessageResponse::class.java
+                )
+                Log.d("TAGDF", errorResponse.message!!)
+
+                emit(MainResult.Message(errorResponse.message))
                 emit(MainResult.Loading(false))
             }
         } catch (e: Throwable) {
@@ -130,9 +137,11 @@ class AuthRepositoryImpl @Inject constructor(
                 emit(MainResult.Loading(false))
 
             } else {
-                result.body()?.let {
-                    emit(MainResult.Message(it.message!!))
-                }
+                val errorResponse = Gson().fromJson(
+                    result.errorBody()?.charStream(),
+                    MessageResponse::class.java
+                )
+                emit(MainResult.Message(errorResponse.message!!))
                 emit(MainResult.Loading(false))
             }
         } catch (e: Throwable) {
@@ -148,6 +157,7 @@ class AuthRepositoryImpl @Inject constructor(
             val result = api.reset(phoneRequest)
 
             if (result.isSuccessful) {
+                Log.d("TAGDF", "reset: repo success")
                 emit(MainResult.Success(Unit))
                 emit(MainResult.Loading(false))
 
