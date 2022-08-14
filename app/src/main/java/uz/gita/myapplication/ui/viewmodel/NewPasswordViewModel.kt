@@ -27,7 +27,6 @@ class NewPasswordViewModel @Inject constructor(
     private val _errorChannel = Channel<String>()
     private val _isConnectedChannel = Channel<Boolean>()
 
-
     val resetFlow: Flow<Unit> = _resetChannel.receiveAsFlow()
     val newPasswordSuccessFlow: Flow<Unit> = _newPasswordSuccessChannel.receiveAsFlow()
     val loadingFlow: Flow<Boolean> = _loadingChannel.receiveAsFlow()

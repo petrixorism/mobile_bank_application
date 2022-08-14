@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="card_holder_s_full_name">Card holder\'s full name</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="card_number">Card number</string>
+    <string name="card_name">Card Name</string>
+    <string name="add_card">Add Card</string>
+</resources>

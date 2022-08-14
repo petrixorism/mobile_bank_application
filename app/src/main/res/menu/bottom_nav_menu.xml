@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/cardFragment"
+        android:icon="@drawable/card_icon"
+        android:title="Cards" />
+
+    <item
+        android:id="@+id/transferFragment"
+        android:icon="@drawable/transfer_icon"
+        android:title="Transfer" />
+
+    <item
+        android:id="@+id/historyFragment"
+        android:icon="@drawable/history_icon"
+        android:title="History" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/profile_icon"
+        android:title="Profile" />
+
+</menu>
