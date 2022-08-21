@@ -9,12 +9,21 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import uz.gita.myapplication.app.App
+import uz.gita.myapplication.data.source.remote.response.CardResponse
+
+typealias CardList = List<CardResponse>
+
 
 fun Fragment.showToast(message: String) {
-    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+}
+
+fun Fragment.showSnackBar(message: String) {
+    Snackbar.make(requireView(), message, Snackbar.LENGTH_SHORT).show()
 }
 
 

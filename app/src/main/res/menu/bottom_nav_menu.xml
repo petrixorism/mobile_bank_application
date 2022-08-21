@@ -7,7 +7,7 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/cardFragment"
+        android:id="@+id/cardsFragment"
         android:icon="@drawable/card_icon"
         android:title="Cards" />
 

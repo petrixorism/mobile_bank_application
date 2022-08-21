@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import uz.gita.myapplication.data.api.AuthApi
+import uz.gita.myapplication.data.api.CardApi
 import javax.inject.Singleton
 
 
@@ -15,5 +16,8 @@ class ApiModule {
 
     @[Provides Singleton]
     fun provideAuthAPI(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+
+    @[Provides Singleton]
+    fun provideCardAPI(retrofit: Retrofit): CardApi = retrofit.create(CardApi::class.java)
 
 }

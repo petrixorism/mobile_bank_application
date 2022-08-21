@@ -20,6 +20,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
@@ -45,8 +46,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        lifecycleScope.launch{
-            viewModel.isConnectedFlow.collect{
+        lifecycleScope.launch {
+            viewModel.isConnectedFlow.collect {
                 if (!it) findNavController().navigate(LoginFragmentDirections.actionGlobalNoInternetFragment())
             }
         }
@@ -133,14 +134,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         lifecycleScope.launch {
             viewModel.verifiedFlow.collect() {
                 hideKeyboard(requireActivity())
+                dialog.dismiss()
+                delay(400L)
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetPinFragment())
 
-                if (dialog.isShowing) {
-                    dialog.dismiss()
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetPinFragment())
-                } else {
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetPinFragment())
-
-                }
             }
         }
 
@@ -173,6 +170,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
     }
+
     override fun onStart() {
         super.onStart()
         viewModel.checkInternet()

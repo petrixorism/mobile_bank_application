@@ -4,110 +4,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#007F7D8C"
-    >
+    android:background="@color/green">
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/icon_back_green"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/ic_icon_back_white"
+        android:foreground="@drawable/ripple_corner_8"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/title" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_semi_bold"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/add_card"
-        android:textColor="@color/black_bank"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/cardLayout"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cardLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+    <ImageView
+        android:id="@+id/illustration_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_onboarding1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".22"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title">
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintWidth_percent=".4" />
 
-        <ImageView
-            android:id="@+id/cardColor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_card7" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_bottomsheet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/illustration_iv"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="16dp">
+
+        <ProgressBar
+            android:id="@+id/loading_p"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="24dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_description" />
 
         <TextView
-            android:id="@+id/cardsName"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_description"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
-            android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_medium"
-            android:text="@string/card_name"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+            android:text="Enter the details to add new card"
+            android:textColor="@color/black_bank"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/loading_p"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/cardPan"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_pan"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/card_number"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/cardOwnerName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardsName" />
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="Pan"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_description"
+            app:layout_constraintStart_toStartOf="@+id/text_description"
+            app:layout_constraintTop_toBottomOf="@+id/text_description" />
+
+        <EditText
+            android:id="@+id/pan_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="19"
+            android:inputType="phone"
+            android:layout_marginHorizontal="22dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="0000 0000 0000 0000"
+            android:maxLines="1"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@+id/text_pan"
+            tools:layout_editor_absoluteX="16dp" />
 
         <TextView
-            android:id="@+id/cardOwnerName"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_card_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/card_holder_s_full_name"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="Card name"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_description"
+            app:layout_constraintStart_toStartOf="@+id/text_description"
+            app:layout_constraintTop_toBottomOf="@+id/pan_et" />
+
+        <EditText
+            android:id="@+id/card_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="My card"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@+id/text_card_name"
+            tools:layout_editor_absoluteX="16dp" />
 
         <TextView
-            android:id="@+id/cardExp"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_exp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/expiry_date"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="Expiration Date"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_description"
+            app:layout_constraintStart_toStartOf="@+id/text_description"
+            app:layout_constraintTop_toBottomOf="@+id/card_name_et" />
+
+        <EditText
+            android:id="@+id/exp_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="00/00"
+            android:maxLength="5"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@+id/text_exp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
     <Button
-        android:id="@+id/select_btn"
+        android:id="@+id/add_card_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
