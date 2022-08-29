@@ -48,6 +48,14 @@ class CardsFragment : Fragment(R.layout.fragment_cards) {
             findNavController().navigate(CardsFragmentDirections.actionCardsFragmentToAddCardFragment())
         }
 
+        adapter.setEditCardListener {
+            findNavController().navigate(
+                CardsFragmentDirections.actionCardsFragmentToEditCardFragment(
+                    it.pan, it.exp, it.owner, it.color, it.cardName, it.id
+                )
+            )
+        }
+
     }
 
 }

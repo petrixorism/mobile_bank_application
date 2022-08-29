@@ -13,7 +13,7 @@ import uz.gita.myapplication.data.source.locale.SharedPref
 import uz.gita.myapplication.data.source.remote.request.PhoneRequest
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://f204-213-230-118-118.eu.ngrok.io"
+private const val BASE_URL = "https://3f06-84-54-92-236.eu.ngrok.io"
 
 @Module
 @InstallIn(SingletonComponent::class)

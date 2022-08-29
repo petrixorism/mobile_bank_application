@@ -88,7 +88,7 @@ class CardRepositoryImpl @Inject constructor(
         try {
             val response = cardApi.editCard(editCardRequest)
             if (response.isSuccessful) {
-                emit(MainResult.Success(response.body()!!.data!!))
+                emit(MainResult.Success("Card has been edited"))
             } else {
                 val errorResponse = Gson().fromJson(
                     response.errorBody()?.charStream(),

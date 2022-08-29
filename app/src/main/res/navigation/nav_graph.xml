@@ -143,9 +143,36 @@
         android:id="@+id/cardsFragment"
         android:name="uz.gita.myapplication.ui.screen.CardsFragment"
         android:label="CardsFragment"
-        tools:layout="@layout/fragment_cards" >
+        tools:layout="@layout/fragment_cards">
         <action
             android:id="@+id/action_cardsFragment_to_addCardFragment"
             app:destination="@id/addCardFragment" />
+        <action
+            android:id="@+id/action_cardsFragment_to_editCardFragment"
+            app:destination="@id/editCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editCardFragment"
+        android:name="uz.gita.myapplication.ui.screen.EditCardFragment"
+        android:label="EditCardFragment"
+        tools:layout="@layout/fragment_edit_card">
+        <argument
+            android:name="pan"
+            app:argType="string" />
+        <argument
+            android:name="exp"
+            app:argType="string" />
+        <argument
+            android:name="owner"
+            app:argType="string" />
+        <argument
+            android:name="color"
+            app:argType="integer" />
+        <argument
+            android:name="cardname"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -31,10 +31,10 @@ interface CardApi {
     @GET("/api/v1/card/all")
     suspend fun allCard(): Response<MainResponse<CardList>>
 
-    @PUT("/api/v1/color")
+    @PUT("/api/v1/card/color")
     suspend fun color(@Body colorRequest: ColorRequest): Response<MainResponse<ColorRequest>>
 
-    @PUT("/api/v1/ignore-balance")
+    @PUT("/api/v1/card/ignore-balance")
     suspend fun ignoreBalance(@Body ignoreBalanceRequest: IgnoreBalanceRequest): Response<MainResponse<IgnoreBalanceRequest>>
 
 

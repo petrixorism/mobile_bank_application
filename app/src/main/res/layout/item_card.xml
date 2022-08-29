@@ -3,116 +3,133 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="24dp"
-    android:layout_marginVertical="8dp">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/cardColor"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_card7" />
-
-    <TextView
-        android:id="@+id/cardsName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Card Name" />
-
-    <TextView
-        android:id="@+id/cardSum"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:gravity="center_vertical"
-        android:maxLines="1"
-        android:paddingEnd="16dp"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/editCard"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editCard"
-        tools:ignore="RtlSymmetry"
-        tools:text="15000000 so'm" />
-
-    <TextView
-        android:id="@+id/cardPan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/cardOwnerName"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="8600 7896 1236 9307" />
-
-    <TextView
-        android:id="@+id/cardOwnerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/white"
-        android:textSize="12sp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="8dp"
+        app:cardCornerRadius="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="John Smith" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/cardExp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="09/24" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/ignoreBalanceCard"
-        android:layout_width="20dp"
-        android:layout_height="18dp"
-        android:background="@drawable/ic_show_visible"
-        android:foreground="?android:selectableItemBackgroundBorderless"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/cardPan"
-        app:layout_constraintEnd_toEndOf="@+id/cardExp"
-        app:layout_constraintTop_toTopOf="@+id/cardPan" />
+            <ImageView
+                android:id="@+id/cardColor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_card7" />
 
-    <Button
-        android:id="@+id/deleteCard"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_delete"
-        android:foreground="?android:selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toTopOf="@id/ignoreBalanceCard"
-        app:layout_constraintEnd_toEndOf="@+id/ignoreBalanceCard" />
+            <TextView
+                android:id="@+id/cardsName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Card Name" />
 
-    <Button
-        android:id="@+id/editCard"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_edit"
-        android:foreground="?android:selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toTopOf="@id/deleteCard"
-        app:layout_constraintEnd_toEndOf="@+id/ignoreBalanceCard" />
+            <TextView
+                android:id="@+id/cardSum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingEnd="16dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toStartOf="@+id/editCard"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editCard"
+                tools:ignore="RtlSymmetry"
+                tools:text="15000000 so'm" />
+
+            <TextView
+                android:id="@+id/cardPan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@id/cardOwnerName"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="8600 7896 1236 9307" />
+
+            <TextView
+                android:id="@+id/cardOwnerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="John Smith" />
+
+            <TextView
+                android:id="@+id/cardExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="09/24" />
+
+            <Button
+                android:id="@+id/ignoreBalanceCard"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:background="@drawable/ic_show_visible"
+                android:foreground="?android:selectableItemBackgroundBorderless"
+                android:textColor="#00FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/cardPan"
+                app:layout_constraintEnd_toEndOf="@+id/cardExp"
+                app:layout_constraintTop_toTopOf="@+id/cardPan" />
+
+            <Button
+                android:id="@+id/deleteCard"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_delete"
+                android:foreground="?android:selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toTopOf="@id/ignoreBalanceCard"
+                app:layout_constraintEnd_toEndOf="@+id/ignoreBalanceCard" />
+
+            <Button
+                android:id="@+id/editCard"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_edit"
+                android:foreground="?android:selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toTopOf="@id/deleteCard"
+                app:layout_constraintEnd_toEndOf="@+id/ignoreBalanceCard" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
