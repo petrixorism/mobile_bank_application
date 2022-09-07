@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -75,6 +74,9 @@ class AddCardFragment : Fragment(R.layout.fragment_add_card) {
                 viewModel.addCard(CardRequest(cardName, pan, exp))
             }.debounce(2000L).launchIn(lifecycleScope)
 
+        binding.backButton.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
     private fun openVerifyBottomSheetDialog(pan: String) {
@@ -97,7 +99,9 @@ class AddCardFragment : Fragment(R.layout.fragment_add_card) {
             viewModel.verifiedFlow.collect() {
                 hideKeyboard(requireActivity())
                 dialog.dismiss()
-
+                showSnackBar("Card has been added")
+                delay(500L)
+                requireActivity().onBackPressed()
             }
         }
 

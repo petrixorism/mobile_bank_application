@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             // invisible some fragments later
             when (destination.id) {
-                R.id.mainFragment, R.id.cardsFragment  -> {
+                R.id.mainFragment, R.id.cardsFragment, R.id.transferFragment, R.id.historyFragment -> {
                     binding.bottomNav.isVisible = true
                 }
 

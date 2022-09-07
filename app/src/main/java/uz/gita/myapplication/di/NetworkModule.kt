@@ -13,7 +13,7 @@ import uz.gita.myapplication.data.source.locale.SharedPref
 import uz.gita.myapplication.data.source.remote.request.PhoneRequest
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://3f06-84-54-92-236.eu.ngrok.io"
+private const val BASE_URL = "https://1c78-84-54-78-42.eu.ngrok.io"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -53,7 +53,6 @@ object NetworkModule {
     class TokenAuthenticator(
         private val pref: SharedPref
     ) : Authenticator {
-
 
         val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)

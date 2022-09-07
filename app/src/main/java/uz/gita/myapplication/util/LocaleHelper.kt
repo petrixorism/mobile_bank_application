@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.util.Log
-import uz.gita.myapplication.data.source.locale.SharedPref
 import java.util.*
 
 

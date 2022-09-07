@@ -8,6 +8,7 @@ import uz.gita.myapplication.data.model.MainResult
 import uz.gita.myapplication.data.source.remote.request.*
 import uz.gita.myapplication.data.source.remote.response.CardResponse
 import uz.gita.myapplication.data.source.remote.response.MessageResponse
+import uz.gita.myapplication.data.source.remote.response.OwnerResponse
 import uz.gita.myapplication.domain.repository.CardRepository
 import uz.gita.myapplication.util.CardList
 import javax.inject.Inject
@@ -104,12 +105,12 @@ class CardRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun deleteCard(cardNumber: String): Flow<MainResult<String>> = flow {
+    override fun deleteCard(deleteCardRequest: DeleteCardRequest): Flow<MainResult<String>> = flow {
         emit(MainResult.Loading(true))
         try {
-            val response = cardApi.deleteCard(cardNumber)
+            val response = cardApi.deleteCard(deleteCardRequest)
             if (response.isSuccessful) {
-                emit(MainResult.Success(response.body()!!.data!!))
+                emit(MainResult.Success("Card has been deleted"))
             } else {
                 val errorResponse = Gson().fromJson(
                     response.errorBody()?.charStream(),
@@ -188,4 +189,51 @@ class CardRepositoryImpl @Inject constructor(
                 emit(MainResult.Loading(false))
             }
         }
+
+    override fun ownerByPan(pan: String): Flow<MainResult<OwnerResponse>> = flow {
+        try {
+
+            emit(MainResult.Loading(true))
+
+            val response = cardApi.ownerByPan(pan)
+
+            if (response.isSuccessful) {
+                emit(MainResult.Success(response.body()!!.data!!))
+            } else {
+                val errorResponse = Gson().fromJson(
+                    response.errorBody()?.charStream(),
+                    MessageResponse::class.java
+                )
+                emit(MainResult.Message(errorResponse.message!!))
+
+            }
+
+        } catch (e: Throwable) {
+            emit(MainResult.Loading(false))
+            emit(MainResult.Message(e.message.toString()))
+        }
+    }
+
+    override fun ownerById(cardId: String): Flow<MainResult<OwnerResponse>> = flow {
+        try {
+
+            emit(MainResult.Loading(true))
+
+            val response = cardApi.ownerById(cardId)
+
+            if (response.isSuccessful) {
+                emit(MainResult.Success(response.body()!!.data!!))
+            } else {
+                val errorResponse = Gson().fromJson(
+                    response.errorBody()?.charStream(),
+                    MessageResponse::class.java
+                )
+                emit(MainResult.Message(errorResponse.message!!))
+            }
+
+        } catch (e: Throwable) {
+            emit(MainResult.Loading(false))
+            emit(MainResult.Message(e.message.toString()))
+        }
+    }
 }

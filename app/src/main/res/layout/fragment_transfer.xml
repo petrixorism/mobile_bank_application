@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".ui.screen.TransferFragment">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Transfer"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/data_transfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Transfer details:"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome" />
+
+    <TextView
+        android:id="@+id/data_transfer_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Card number"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/data_transfer" />
+
+
+    <TextView
+        android:id="@+id/card_owner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:gravity="start"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/button100"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        tools:text="Dilmurod" />
+
+
+    <EditText
+        android:id="@+id/recieverPan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_edit_text_back"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_vertical"
+        android:hint="Enter card number"
+        android:inputType="phone"
+        android:maxLength="19"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:paddingStart="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="#70FFFFFF"
+        android:textSize="14sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/data_transfer_number"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/data_transfer_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Transfer amount"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recieverPan" />
+
+
+    <EditText
+        android:id="@+id/totalSum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_edit_text_back"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center_vertical"
+        android:hint="O'tkazma summasini kiriting"
+        android:inputType="number"
+        android:maxLength="24"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:paddingStart="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="#70FFFFFF"
+        android:textSize="14sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/data_transfer_sum"
+        tools:ignore="RtlSymmetry" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_button"
+        android:fontFamily="@font/poppins_medium"
+        android:text="5 000"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/button10"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/totalSum"
+        app:layout_constraintTop_toBottomOf="@+id/totalSum" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_button"
+        android:fontFamily="@font/poppins_medium"
+        android:text="10 000"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/totalSum"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/totalSum" />
+
+    <Button
+        android:id="@+id/button50"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_button"
+        android:fontFamily="@font/poppins_medium"
+        android:text="50 000"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/button100"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/totalSum"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button100"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_button"
+        android:fontFamily="@font/poppins_medium"
+        android:text="100 000"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/totalSum"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/button50"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+
+    <TextView
+        android:id="@+id/cancel_transfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Bekor qilish"
+        android:textAllCaps="false"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/confirm_btn"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/confirm_btn" />
+
+
+    <Button
+        android:id="@+id/confirm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/valid_button_selector"
+        android:clickable="false"
+        android:enabled="false"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingHorizontal="24dp"
+        android:text="Davom etish"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button100" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Qabul qiluvchi: "
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button50" />
+
+
+    <ProgressBar
+        android:id="@+id/recipient_name_loading_pb"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:progressDrawable="@drawable/progress"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/card_owner"
+        app:layout_constraintEnd_toEndOf="@+id/card_owner"
+        app:layout_constraintTop_toTopOf="@+id/card_owner" />
+</androidx.constraintlayout.widget.ConstraintLayout>

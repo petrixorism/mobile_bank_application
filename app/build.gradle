@@ -40,7 +40,7 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
@@ -49,8 +49,8 @@ dependencies {
 
 
     //Nav graph
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
 
     //Dagger Hilt
     implementation "com.google.dagger:hilt-android:2.42"
@@ -74,13 +74,13 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
     //Coroutine liveData
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
     // Room
-    implementation "androidx.room:room-runtime:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
-    implementation "androidx.room:room-ktx:2.4.2"
+    implementation "androidx.room:room-runtime:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
 
     //Lottie animation
     implementation 'com.airbnb.android:lottie:4.2.2'
@@ -94,14 +94,13 @@ dependencies {
     // MaskedEditText
     implementation 'com.github.santalu:maskara:1.0.0'
 
-    // swipe button
-//    implementation 'com.ebanx:swipe-button:0.4.0'
+    // Swipe button
+    //implementation 'com.ebanx:swipe-button:0.8.3'
 
     // swipe refresh layout
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+//    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
 
-    def paging_version = "3.1.0"
 
     implementation "androidx.paging:paging-runtime:3.1.1"
 

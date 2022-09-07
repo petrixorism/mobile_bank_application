@@ -47,10 +47,11 @@ class CardAdapter : ListAdapter<CardResponse, CardAdapter.ViewHolder>(DiffItem) 
                 )
             }
             ignoreBalanceButton.setOnClickListener {
-                var req = true
-                if (getItem(absoluteAdapterPosition).ignoreBalance) req = false
                 ignoreBalanceListener?.invoke(
-                    IgnoreBalanceRequest(getItem(absoluteAdapterPosition).id, req)
+                    IgnoreBalanceRequest(
+                        getItem(absoluteAdapterPosition).id,
+                        !getItem(absoluteAdapterPosition).ignoreBalance
+                    )
                 )
             }
         }

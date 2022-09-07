@@ -15,7 +15,6 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
 import uz.gita.myapplication.R
 import uz.gita.myapplication.databinding.FragmentMainBinding
 import uz.gita.myapplication.ui.viewmodel.HomeViewModel

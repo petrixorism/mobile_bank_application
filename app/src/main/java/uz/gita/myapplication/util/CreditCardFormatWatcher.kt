@@ -1,10 +1,13 @@
 package uz.gita.myapplication.util
 
+import android.annotation.SuppressLint
 import android.text.Editable
 import com.google.android.material.internal.TextWatcherAdapter
 
+@SuppressLint("RestrictedApi")
 class CreditCardFormatWatcher : TextWatcherAdapter() {
 
+    @SuppressLint("RestrictedApi")
     override fun afterTextChanged(s: Editable) {
         super.afterTextChanged(s)
 

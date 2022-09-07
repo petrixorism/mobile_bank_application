@@ -48,7 +48,7 @@ class CheckPinFragment : Fragment(R.layout.fragment_check_pin) {
         }
 
 
-        binding.backBtn2.setOnClickListener {
+        binding.backspaceBtn.setOnClickListener {
             requireActivity().onBackPressed()
         }
 

@@ -6,8 +6,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.gita.myapplication.data.repository.AuthRepositoryImpl
 import uz.gita.myapplication.data.repository.CardRepositoryImpl
+import uz.gita.myapplication.data.repository.TransferRepositoryImpl
 import uz.gita.myapplication.domain.repository.AuthRepository
 import uz.gita.myapplication.domain.repository.CardRepository
+import uz.gita.myapplication.domain.repository.TransferRepository
 import javax.inject.Singleton
 
 @Module
@@ -19,5 +21,8 @@ interface RepositoryModule {
 
     @[Singleton Binds]
     fun provideCardRepository(impl: CardRepositoryImpl): CardRepository
+
+    @[Singleton Binds]
+    fun provideTransferRepository(impl: TransferRepositoryImpl): TransferRepository
 
 }

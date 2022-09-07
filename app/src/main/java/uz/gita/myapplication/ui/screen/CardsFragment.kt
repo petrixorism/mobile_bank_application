@@ -1,5 +1,6 @@
 package uz.gita.myapplication.ui.screen
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.myapplication.R
+import uz.gita.myapplication.data.source.remote.request.IgnoreBalanceRequest
 import uz.gita.myapplication.databinding.FragmentCardsBinding
 import uz.gita.myapplication.ui.adapter.CardAdapter
 import uz.gita.myapplication.ui.viewmodel.CardsViewModel
@@ -42,6 +44,18 @@ class CardsFragment : Fragment(R.layout.fragment_cards) {
             }
         }
 
+        lifecycleScope.launchWhenCreated {
+            viewModel.deletedCardFlow.collect {
+                viewModel.allCard()
+            }
+        }
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.ignoreBalanceFlow.collect {
+                viewModel.allCard()
+            }
+        }
+
         binding.cardsRv.adapter = adapter
 
         binding.addCardCl.setOnClickListener {
@@ -55,7 +69,45 @@ class CardsFragment : Fragment(R.layout.fragment_cards) {
                 )
             )
         }
+        adapter.setIgnoreBalanceListener {
+            viewModel.ignoreBalanceCard(
+                IgnoreBalanceRequest(
+                    userCardId = it.userCardId,
+                    ignoreBalance = it.ignoreBalance
+                )
+            )
+        }
+        adapter.setDeleteCardListener {
+            openAlertDialog(it.pan)
+//            viewModel.deleteCard(it.pan)
+        }
+        viewModel.allCard()
 
+    }
+
+    fun openAlertDialog(pan: String) {
+        val builder = AlertDialog.Builder(requireContext())
+        //set title for alert dialog
+        builder.setTitle("Delete")
+        builder.setCancelable(true)
+        //set message for alert dialog
+        builder.setMessage("Do you want to delete this card?")
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        //performing positive action
+        builder.setPositiveButton("Yes") { _, _ ->
+            viewModel.deleteCard(pan)
+        }
+        builder.setNegativeButton("No", null)
+        // Create the AlertDialog
+        // Set other dialog properties
+        val alertDialog: AlertDialog = builder.create()
+
+        //performing negative action
+
+
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 
 }

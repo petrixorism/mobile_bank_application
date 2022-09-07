@@ -5,7 +5,6 @@ import android.app.Application
 import android.content.Context
 import dagger.hilt.android.HiltAndroidApp
 import uz.gita.myapplication.data.source.locale.SharedPref
-import uz.gita.myapplication.util.LocaleHelper
 
 @HiltAndroidApp
 class App : Application() {

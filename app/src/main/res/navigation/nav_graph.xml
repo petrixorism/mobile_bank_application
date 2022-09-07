@@ -175,4 +175,33 @@
             android:name="id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="uz.gita.myapplication.ui.screen.TransferFragment"
+        android:label="fragment_pre_transfer"
+        tools:layout="@layout/fragment_transfer">
+        <action
+            android:id="@+id/action_preTransferFragment_to_transferFragment2"
+            app:destination="@id/sendMoneyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoneyFragment"
+        android:name="uz.gita.myapplication.ui.screen.SendMoneyFragment"
+        android:label="TransferFragment"
+        tools:layout="@layout/fragment_send_money">
+        <argument
+            android:name="sum"
+            app:argType="integer" />
+        <argument
+            android:name="receiver_pan"
+            app:argType="string" />
+        <argument
+            android:name="receiver_name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        tools:layout="@layout/fragment_history"
+        android:name="uz.gita.myapplication.ui.screen.HistoryFragment"
+        android:label="HistoryFragment" />
 </navigation>
