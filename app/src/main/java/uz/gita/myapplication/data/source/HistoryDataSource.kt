@@ -67,10 +67,7 @@ class HistoryDataSource(val cardApi: CardApi, private val transferApi: TransferA
                                 it.id == i.sender
                             }.name
                         }
-
                     }
-
-
                 }
             }
 

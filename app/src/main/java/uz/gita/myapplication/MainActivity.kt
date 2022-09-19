@@ -1,11 +1,9 @@
 package uz.gita.myapplication
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.animation.AnticipateInterpolator
 import android.view.animation.AnticipateOvershootInterpolator
-import android.view.animation.DecelerateInterpolator
-import android.view.animation.Interpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -20,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navHostFragment.navController)
 
 
-        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+
+        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, _ ->
             // invisible some fragments later
             when (destination.id) {
 
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                         delay(400L)
                         binding.bottomNav.isVisible = true
                     }
+
                 }
 
                 else -> {

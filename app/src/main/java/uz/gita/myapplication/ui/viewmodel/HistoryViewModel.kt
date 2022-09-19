@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -28,17 +29,13 @@ class HistoryViewModel @Inject constructor(
     private val _historyListChannel = Channel<PagingData<HistoryItem>>()
     val historyFlow: Flow<PagingData<HistoryItem>> = _historyListChannel.receiveAsFlow()
 
-    init {
-
+    fun getHistory(scope: CoroutineScope) {
         viewModelScope.launch {
-            delay(1000L)
             _loadingChannel.send(true)
-            repository.getHistory(this).collect {
+            repository.getHistory(scope).collect {
                 _historyListChannel.send(it)
                 _loadingChannel.send(false)
             }
-
-
         }
     }
 
