@@ -9,6 +9,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import uz.gita.myapplication.R
 import uz.gita.myapplication.databinding.FragmentTransferBinding
 import uz.gita.myapplication.ui.viewmodel.TransferViewModel
@@ -29,7 +32,7 @@ class TransferFragment : Fragment(R.layout.fragment_transfer) {
         lifecycleScope.launchWhenCreated {
             viewModel.loadingFlow.collect {
                 if (it) {
-                    binding.cardOwner.text = "Loading..."
+                    binding.cardOwner.text = getString(R.string.checking)
                 }
             }
         }
@@ -37,11 +40,13 @@ class TransferFragment : Fragment(R.layout.fragment_transfer) {
         lifecycleScope.launchWhenCreated {
             viewModel.messageFlow.collect {
                 showToast(it)
+                binding.confirmBtn.isEnabled = false
+                binding.confirmBtn.isClickable = false
             }
         }
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.ownerByPan.collect {
+        lifecycleScope.launch {
+            viewModel.ownerByPan.collect{
                 binding.cardOwner.text = it
                 binding.confirmBtn.isEnabled = true
                 binding.confirmBtn.isClickable = true
@@ -57,6 +62,9 @@ class TransferFragment : Fragment(R.layout.fragment_transfer) {
             if (pan != null) {
                 if (pan.length == 16) {
                     viewModel.ownerByPan(pan.toString())
+                } else {
+                    binding.confirmBtn.isEnabled = false
+                    binding.confirmBtn.isClickable = false
                 }
             }
         }
@@ -87,6 +95,11 @@ class TransferFragment : Fragment(R.layout.fragment_transfer) {
         }
         binding.button100.setOnClickListener {
             binding.totalSum.setText("100000")
+        }
+
+        binding.cancelTransfer.setOnClickListener {
+            binding.recieverPan.setText("")
+            binding.totalSum.setText("")
         }
 
 

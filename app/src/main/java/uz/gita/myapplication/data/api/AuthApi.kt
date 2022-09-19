@@ -25,10 +25,17 @@ interface AuthApi {
     suspend fun resend(@Body resendRequest: ResendRequest): Response<MainResponse<Nothing>>
 
     @POST("api/v1/auth/refresh")
-    suspend fun refresh(@Header("refresh_token") refreshToken: String, @Body refreshRequest: PhoneRequest): Response<MainResponse<TokenResponse>>
-    // Malware
+    suspend fun refresh(
+        @Header("refresh_token") refreshToken: String,
+        @Body refreshRequest: PhoneRequest
+    ): Response<MainResponse<TokenResponse>>
+
+    // For middleware
     @POST("api/v1/auth/refresh")
-    fun refreshForEachRequest(@Header("refresh_token") refreshToken: String, @Body refreshRequest: PhoneRequest): Call<MainResponse<TokenResponse>>
+    fun refreshForEachRequest(
+        @Header("refresh_token") refreshToken: String,
+        @Body refreshRequest: PhoneRequest
+    ): Call<MainResponse<TokenResponse>>
 
     @POST("api/v1/auth/reset")
     suspend fun reset(@Body phoneRequest: PhoneRequest): Response<MainResponse<Nothing>>
@@ -36,7 +43,7 @@ interface AuthApi {
     @POST("api/v1/auth/newpassword")
     suspend fun newPassword(@Body newPasswordRequest: NewPasswordRequest): Response<MainResponse<Nothing>>
 
-    @POST("api/v1/logout")
+    @POST("api/v1/auth/logout")
     suspend fun logout(@Header("token") token: String): Response<MainResponse<Nothing>>
 
 }

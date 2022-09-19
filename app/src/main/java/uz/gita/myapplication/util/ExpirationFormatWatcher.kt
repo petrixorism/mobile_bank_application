@@ -17,7 +17,7 @@ class ExpirationFormatWatcher : TextWatcherAdapter() {
                 spaceIndex -> s.insert(index, "/")
             }
         }
-        if (s.isNotEmpty()){
+        if (s.isNotEmpty()) {
             if (s.last().isWhitespace())
                 s.delete(s.length - 1, s.length)
         }

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:layout_height="match_parent"
 
-    android:layout_height="match_parent">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/go_to_register"
@@ -59,7 +59,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppins_semi_bold"
-        android:text="GITA Bank"
+        android:text="@string/gita_bank"
         android:textColor="@color/green"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_semi_bold"
-        android:text="Welcome"
+        android:text="@string/welcome"
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@id/textView3"
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="Please enter your phone number and password"
+        android:text="@string/please_enter_your_phone_number_and_password"
         android:textColor="@color/grey"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="24dp"
-        android:hint="Phone"
+        android:hint="@string/phone"
         app:counterEnabled="true"
         app:counterMaxLength="9"
         app:counterOverflowTextColor="@color/green"
@@ -123,7 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:counterEnabled="true"
         app:counterMaxLength="20"
         app:counterOverflowTextColor="@color/green"

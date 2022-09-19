@@ -88,17 +88,17 @@ class CardsFragment : Fragment(R.layout.fragment_cards) {
     fun openAlertDialog(pan: String) {
         val builder = AlertDialog.Builder(requireContext())
         //set title for alert dialog
-        builder.setTitle("Delete")
+        builder.setTitle(getString(R.string.delete))
         builder.setCancelable(true)
         //set message for alert dialog
-        builder.setMessage("Do you want to delete this card?")
+        builder.setMessage(getString(R.string.delete_quote))
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
         //performing positive action
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
             viewModel.deleteCard(pan)
         }
-        builder.setNegativeButton("No", null)
+        builder.setNegativeButton(getString(R.string.cancel), null)
         // Create the AlertDialog
         // Set other dialog properties
         val alertDialog: AlertDialog = builder.create()

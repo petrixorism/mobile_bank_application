@@ -22,7 +22,7 @@ class SetPinViewModel @Inject constructor(
     val successFlow: Flow<Unit> = _successChannel.receiveAsFlow()
 
     fun skipPin() {
-        viewModelScope.launch{
+        viewModelScope.launch {
             pref.isSkippedPin = true
             _successChannel.send(Unit)
         }

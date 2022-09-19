@@ -25,8 +25,8 @@ class TransferViewModel @Inject constructor(
     private val _messageChannel = Channel<String>()
     val messageFlow: Flow<String> = _messageChannel.receiveAsFlow()
 
-    private val _ownerByPanStateFlow = MutableStateFlow("")
-    val ownerByPan: Flow<String> = _ownerByPanStateFlow.asStateFlow()
+    private val _ownerByPanStateFlow = Channel<String>()
+    val ownerByPan: Flow<String> = _ownerByPanStateFlow.receiveAsFlow()
 
     fun ownerByPan(pan: String) {
         viewModelScope.launch {
@@ -34,7 +34,7 @@ class TransferViewModel @Inject constructor(
             repository.ownerByPan(pan).collect {
                 when (it) {
                     is MainResult.Success -> {
-                        _ownerByPanStateFlow.emit(it.data.fio)
+                        _ownerByPanStateFlow.send(it.data.fio)
                     }
                     is MainResult.Loading -> {
                         _loadingChannel.send(it.isLoading)

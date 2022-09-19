@@ -1,11 +1,18 @@
 package uz.gita.myapplication
 
+
 import android.os.Bundle
+import android.view.animation.AnticipateInterpolator
+import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.Interpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import uz.gita.myapplication.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
@@ -27,13 +34,34 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             // invisible some fragments later
             when (destination.id) {
-                R.id.mainFragment, R.id.cardsFragment, R.id.transferFragment, R.id.historyFragment -> {
-                    binding.bottomNav.isVisible = true
+
+                R.id.mainFragment, R.id.cardsFragment, R.id.transferFragment, R.id.historyFragment, R.id.profileFragment -> {
+                    lifecycleScope.launchWhenCreated {
+                        binding.bottomNav.animate().apply {
+                            duration = 400L
+                            alpha(1f)
+                            interpolator = AnticipateOvershootInterpolator()
+                            translationY(0f)
+                            start()
+                        }
+                        delay(400L)
+                        binding.bottomNav.isVisible = true
+                    }
                 }
 
                 else -> {
-                    binding.bottomNav.isVisible = false
+                    lifecycleScope.launchWhenCreated {
+                        binding.bottomNav.animate().apply {
+                            duration = 400L
+                            interpolator = AnticipateOvershootInterpolator()
+                            alpha(0f)
+                            translationY(200f)
+                            start()
 
+                        }
+                        delay(400L)
+                        binding.bottomNav.isVisible = false
+                    }
                 }
             }
 

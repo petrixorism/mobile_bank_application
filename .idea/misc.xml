@@ -76,21 +76,80 @@
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/onboarding_child_fragment.xml" value="0.2765625" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/onboarding_parent_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/select_language_fragment.xml" value="0.22" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable-v24/history_icon.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable-v24/ic_show_visible.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable-v24/profile_icon.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable-v24/progress.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable-v24/radio_unselected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable-v24/ripple_corner_36.xml" value="0.157" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/background_bottomsheet.xml" value="0.208" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/background_bottomsheet_grey.xml" value="0.208" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/card_icon.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/circle_ripple.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/code_background.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/corner_green.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/corner_white.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/dash_stroke.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/edit_text_background.xml" value="0.157" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/grey_shape.xml" value="0.208" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/home_icon.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_add_card.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_backspace.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_balance.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_card1.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_card6.xml" value="0.208" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_card7.xml" value="0.208" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_card8.xml" value="0.208" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_card_selected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_card_unselected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_delete.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_done.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_edit.xml" value="0.157" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_edit_text_back.xml" value="0.139" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_ellipse.xml" value="0.207" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_history_selected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_history_unselected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_home_selected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_home_unselected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_icon_back_white.xml" value="0.157" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_income.xml" value="0.2075" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_language.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_log_out.xml" value="0.208" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_onboarding2.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_onboarding3.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_outcome.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_pin_background.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_profile_selected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_profile_unselected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_show.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_show_invisible.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_splash_logo.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_transfer_selected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ic_transfer_unselected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/icon_back.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/icon_back_green.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/illustration_language.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/radio_selected.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/ripple_corner_8.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/selector_radio_button.xml" value="0.157" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/shape_button.xml" value="0.108" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/transfer_icon.xml" value="0.157" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/valid_button_selector.xml" value="0.108" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/yellow_bg.xml" value="0.139" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/yellow_disabled_bg.xml" value="0.108" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/drawable/yellow_gradient.xml" value="0.157" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/bottomsheet_cards.xml" value="0.203125" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/bottomsheet_verify.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_add_card.xml" value="0.33" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_add_card.xml" value="0.2611464968152866" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_base_url.xml" value="0.22" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_cards.xml" value="0.2" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_check_pin.xml" value="0.2" />
-        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_edit_card.xml" value="0.5" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_edit_card.xml" value="0.16" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_history.xml" value="0.25" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_main.xml" value="0.2" />
@@ -99,12 +158,13 @@
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_onboarding_child.xml" value="0.2" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_onboarding_parent.xml" value="0.2" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_pre_transfer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_register.xml" value="0.11548913043478261" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_select_language.xml" value="0.15217391304347827" />
-        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_send_money.xml" value="0.33" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_send_money.xml" value="0.18" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_set_pin.xml" value="0.2" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_splash.xml" value="0.15217391304347827" />
-        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_transfer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/fragment_transfer.xml" value="0.33" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/frawgment_pre_transfer.xml" value="0.25" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/item_card.xml" value="0.3764568764568765" />
         <entry key="..\:/Users/E-MaxPCShop/AndroidStudioProjects/mobile_bank_application/app/src/main/res/layout/item_color.xml" value="0.203125" />

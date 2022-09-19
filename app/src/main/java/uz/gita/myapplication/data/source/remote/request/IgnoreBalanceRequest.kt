@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class IgnoreBalanceRequest(
 
-	@SerializedName("userCardId")
-	val userCardId: Int,
+    @SerializedName("userCardId")
+    val userCardId: Int,
 
-	@SerializedName("ignoreBalance")
-	val ignoreBalance: Boolean,
+    @SerializedName("ignoreBalance")
+    val ignoreBalance: Boolean,
 )

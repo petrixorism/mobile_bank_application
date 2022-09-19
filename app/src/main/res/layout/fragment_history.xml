@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Transfer history"
+        android:text="@string/transfer_history"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,6 @@
         android:id="@+id/history_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:reverseLayout="true"
         android:background="@drawable/background_bottomsheet"
         android:paddingTop="24dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -72,8 +71,6 @@
             <include layout="@layout/item_shimmer" />
 
             <include layout="@layout/item_shimmer" />
-
-
 
 
         </LinearLayout>

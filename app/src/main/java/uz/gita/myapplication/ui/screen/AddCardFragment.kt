@@ -1,5 +1,6 @@
 package uz.gita.myapplication.ui.screen
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -79,6 +80,7 @@ class AddCardFragment : Fragment(R.layout.fragment_add_card) {
         }
     }
 
+    @SuppressLint("InflateParams")
     private fun openVerifyBottomSheetDialog(pan: String) {
         val dialog = BottomSheetDialog(this.requireContext())
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
@@ -99,7 +101,7 @@ class AddCardFragment : Fragment(R.layout.fragment_add_card) {
             viewModel.verifiedFlow.collect() {
                 hideKeyboard(requireActivity())
                 dialog.dismiss()
-                showSnackBar("Card has been added")
+                showSnackBar(getString(R.string.card_added))
                 delay(500L)
                 requireActivity().onBackPressed()
             }

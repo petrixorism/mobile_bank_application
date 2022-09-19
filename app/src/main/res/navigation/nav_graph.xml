@@ -5,6 +5,26 @@
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/splashFragment">
 
+    <action
+        android:id="@+id/action_global_noInternetFragment"
+        app:destination="@id/noInternetFragment" />
+    <action
+        android:id="@+id/action_global_baseUrlFragment"
+        app:destination="@id/baseUrlFragment" />
+
+    <action
+        android:id="@+id/action_global_historyFragment"
+        app:destination="@id/historyFragment" />
+
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/mainFragment" />
+
+    <action
+        android:id="@+id/action_global_splashFragment"
+        app:destination="@id/splashFragment"
+        app:popUpTo="@id/nav_graph.xml"
+        app:popUpToInclusive="true" />
 
     <fragment
         android:id="@+id/fragmentSelectLang"
@@ -14,9 +34,14 @@
         <action
             android:id="@+id/action_fragmentSelectLang_to_onboardParentFragment"
             app:destination="@id/onboardParentFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
+
     <fragment
         android:id="@+id/onboardParentFragment"
         android:name="uz.gita.myapplication.ui.screen.OnboardParentFragment"
@@ -25,6 +50,10 @@
         <action
             android:id="@+id/action_onboardParentFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
@@ -36,27 +65,42 @@
         <action
             android:id="@+id/action_splashFragment_to_fragmentSelectLang"
             app:destination="@id/fragmentSelectLang"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_checkPinFragment"
             app:destination="@id/checkPinFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
-
     <fragment
-        android:id="@+id/noInternetFragment2"
+        android:id="@+id/noInternetFragment"
         android:name="uz.gita.myapplication.ui.screen.NoInternetFragment"
         android:label="NoInternetFragment"
         tools:layout="@layout/fragment_no_connection" />
@@ -73,12 +117,14 @@
         <action
             android:id="@+id/action_pinFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
-    <action
-        android:id="@+id/action_global_noInternetFragment"
-        app:destination="@id/noInternetFragment2" />
+
     <fragment
         android:id="@+id/checkPinFragment"
         android:name="uz.gita.myapplication.ui.screen.CheckPinFragment"
@@ -87,6 +133,10 @@
         <action
             android:id="@+id/action_checkPinFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
@@ -97,21 +147,37 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_setPinFragment"
             app:destination="@id/setPinFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
             app:launchSingleTop="true"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_newPasswordFragment"
-            app:destination="@id/newPasswordFragment" />
+            app:destination="@id/newPasswordFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -121,11 +187,19 @@
         <action
             android:id="@+id/action_registerFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_registerFragment_to_setPinFragment"
             app:destination="@id/setPinFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
@@ -144,12 +218,22 @@
         android:name="uz.gita.myapplication.ui.screen.CardsFragment"
         android:label="CardsFragment"
         tools:layout="@layout/fragment_cards">
+
         <action
             android:id="@+id/action_cardsFragment_to_addCardFragment"
-            app:destination="@id/addCardFragment" />
+            app:destination="@id/addCardFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_bottom" />
         <action
             android:id="@+id/action_cardsFragment_to_editCardFragment"
-            app:destination="@id/editCardFragment" />
+            app:destination="@id/editCardFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_bottom"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_top" />
+
     </fragment>
     <fragment
         android:id="@+id/editCardFragment"
@@ -182,7 +266,11 @@
         tools:layout="@layout/fragment_transfer">
         <action
             android:id="@+id/action_preTransferFragment_to_transferFragment2"
-            app:destination="@id/sendMoneyFragment" />
+            app:destination="@id/sendMoneyFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/sendMoneyFragment"
@@ -201,7 +289,17 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        tools:layout="@layout/fragment_history"
         android:name="uz.gita.myapplication.ui.screen.HistoryFragment"
-        android:label="HistoryFragment" />
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="uz.gita.myapplication.ui.screen.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/baseUrlFragment"
+        tools:layout="@layout/fragment_base_url"
+        android:name="uz.gita.myapplication.ui.screen.BaseUrlFragment"
+        android:label="BaseUrlFragment" />
 </navigation>

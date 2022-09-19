@@ -44,8 +44,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        lifecycleScope.launch{
-            viewModel.isConnectedFlow.collect{
+        lifecycleScope.launch {
+            viewModel.isConnectedFlow.collect {
                 if (!it) findNavController().navigate(RegisterFragmentDirections.actionGlobalNoInternetFragment())
             }
         }
@@ -117,12 +117,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         object : CountDownTimer(30000, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
-                resendTv.text = "Resend : " + millisUntilFinished / 1000
+                resendTv.text = "${getString(R.string.resend_code)} : " + millisUntilFinished / 1000
             }
 
             override fun onFinish() {
                 resendTv.isEnabled = true
-                resendTv.text = "Resend Code"
+                resendTv.text = getString(R.string.resend_code)
             }
         }.start()
 
@@ -142,14 +142,14 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         lifecycleScope.launch {
             viewModel.errorVerifyFlow.collect() {
                 animator.shake(smsCode)
-                verificationTv.text = "Invalid code"
+                verificationTv.text = getString(R.string.invalid_code)
             }
         }
 
         lifecycleScope.launch {
             viewModel.loadingVerifyFlow.collect() {
                 if (it) {
-                    verificationTv.text = "Checking..."
+                    verificationTv.text = getString(R.string.checking)
                 } else {
                     verificationTv.text = getString(R.string.we_sent_code)
                 }

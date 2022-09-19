@@ -33,6 +33,9 @@ class SendMoneyViewModel @Inject constructor(
     private val _sendMoneyChannel = Channel<TransferResponse>()
     val sendMoneySuccessFlow: Flow<TransferResponse> = _sendMoneyChannel.receiveAsFlow()
 
+    private val _ownerByIdChannel = Channel<String>()
+    val ownerByIdFlow: Flow<String> = _ownerByIdChannel.receiveAsFlow()
+
     private val _allCardsStateFlow = MutableStateFlow<CardList>(emptyList())
     val allCardsFlow: Flow<CardList> = _allCardsStateFlow.asStateFlow()
 
@@ -74,5 +77,22 @@ class SendMoneyViewModel @Inject constructor(
         }
     }
 
+    fun ownerById(id: String) {
+        viewModelScope.launch {
+            cardRepository.ownerById(id).collect {
+                when (it) {
+                    is MainResult.Success -> {
+                        _ownerByIdChannel.send(it.data.fio)
+                    }
+                    is MainResult.Loading -> {
+                        _loadingChannel.send(it.isLoading)
+                    }
+                    is MainResult.Message -> {
+                        _messageChannel.send(it.message)
+                    }
+                }
+            }
+        }
+    }
 
 }

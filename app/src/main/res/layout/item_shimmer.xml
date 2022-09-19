@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#F6F6F6">
@@ -19,11 +18,10 @@
 
     <TextView
         android:id="@+id/name_tv"
-        android:layout_marginTop="8dp"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent=".35"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/grey_shape"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_medium"
@@ -33,7 +31,8 @@
         app:layout_constraintEnd_toStartOf="@+id/amount_tv"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/logo_iv"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".35" />
 
     <TextView
         android:id="@+id/amount_tv"
@@ -53,10 +52,9 @@
     <TextView
         android:id="@+id/date_tv"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent=".4"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginVertical="8dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/grey_shape"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/grey_darker"
@@ -66,14 +64,14 @@
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/logo_iv"
         app:layout_constraintTop_toBottomOf="@+id/name_tv"
-         />
+        app:layout_constraintWidth_percent=".4" />
 
     <TextView
         android:id="@+id/fee_tv"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent=".2"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/grey_shape"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/grey_darker"
         android:textSize="14sp"
@@ -81,6 +79,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/date_tv"
         app:layout_constraintTop_toTopOf="@+id/date_tv"
-        android:background="@drawable/grey_shape" />
+        app:layout_constraintWidth_percent=".2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

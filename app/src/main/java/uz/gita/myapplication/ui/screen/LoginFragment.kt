@@ -88,6 +88,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.forgotPasswordBtn.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToNewPasswordFragment())
         }
+        binding.textView.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionGlobalBaseUrlFragment())
+        }
     }
 
     //-- BottomSheet Dialog--//
@@ -120,20 +123,21 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         object : CountDownTimer(30000, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
-                resendTv.text = "Resend : " + millisUntilFinished / 1000
+                resendTv.text = "${getString(R.string.resend_code)} : " + millisUntilFinished / 1000
             }
 
             override fun onFinish() {
                 resendTv.isEnabled = true
-                resendTv.text = "Resend Code"
+                resendTv.text = getString(R.string.resend_code)
             }
         }.start()
 
         lifecycleScope.launch {
             viewModel.verifiedFlow.collect() {
+
                 hideKeyboard(requireActivity())
                 dialog.dismiss()
-                delay(400L)
+                delay(500L)
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetPinFragment())
 
             }
@@ -142,14 +146,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         lifecycleScope.launch {
             viewModel.errorVerifyFlow.collect() {
                 animator.shake(smsCode)
-                verificationTv.text = "Invalid code"
+                verificationTv.text = getString(R.string.invalid_code)
             }
         }
 
         lifecycleScope.launch {
             viewModel.loadingVerifyFlow.collect() {
                 if (it) {
-                    verificationTv.text = "Checking..."
+                    verificationTv.text = getString(R.string.checking)
                 } else {
                     verificationTv.text = getString(R.string.we_sent_code)
                 }

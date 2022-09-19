@@ -3,10 +3,10 @@ package uz.gita.myapplication.ui.screen
 import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.filter
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.myapplication.R
@@ -26,21 +26,24 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         binding.historyRv.adapter = adapter
 
         lifecycleScope.launchWhenCreated {
-            viewModel.messageFlow.collect{
+            viewModel.messageFlow.collect {
                 showToast(it)
             }
         }
         lifecycleScope.launchWhenCreated {
-            viewModel.historyFlow.collect{
+            viewModel.historyFlow.collect {
                 adapter.submitData(it)
             }
         }
         lifecycleScope.launchWhenCreated {
-            viewModel.loadingFlow.collect{
-                if (!it){
+            viewModel.loadingFlow.collect {
+                if (!it) {
                     binding.shimmerViewContainer.visibility = GONE
                 }
             }
+        }
+        adapter.setItemClick {
+
         }
 
     }

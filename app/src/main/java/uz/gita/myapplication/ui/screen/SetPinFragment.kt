@@ -40,9 +40,6 @@ class SetPinFragment : Fragment(R.layout.fragment_set_pin) {
         }
 
 
-        binding.backBtn.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
         binding.backspaceBtn.setOnClickListener {
             val pins = getPins().filter { pin ->
                 pin.text.toString().isNotBlank()

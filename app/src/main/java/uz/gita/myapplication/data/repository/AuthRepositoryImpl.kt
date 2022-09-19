@@ -211,6 +211,9 @@ class AuthRepositoryImpl @Inject constructor(
             val result = api.logout(pref.accessToken)
 
             if (result.isSuccessful) {
+
+                pref.clearPref()
+
                 emit(MainResult.Success(Unit))
                 emit(MainResult.Loading(false))
             } else {

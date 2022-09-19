@@ -40,6 +40,10 @@ class SharedPref(context: Context) {
         set(value) = pref.edit().putString("PHONE", value).apply()
         get() = pref.getString("PHONE", "")!!
 
+    var baseUrl: String
+        set(value) = pref.edit().putString("BASE_URL", value).apply()
+        get() = pref.getString("BASE_URL", "https://c114-95-214-210-176.eu.ngrok.io")!!
+
 
     var isFirstTime: Boolean
         set(value) = pref.edit().putBoolean("IS_FIRST_TIME", value).apply()
@@ -49,5 +53,14 @@ class SharedPref(context: Context) {
         set(value) = pref.edit().putBoolean("IS_SKIPPED_PIN", value).apply()
         get() = pref.getBoolean("IS_SKIPPED_PIN", true)
 
+    fun clearPref() {
+        pref.edit().putString("LANGUAGE", "en").apply()
+        pref.edit().putString("PIN", "").apply()
+        pref.edit().putString("ACCESS_TOKEN", "").apply()
+        pref.edit().putString("REFRESH_TOKEN", "").apply()
+        pref.edit().putBoolean("IS_FIRST_TIME", true).apply()
+        pref.edit().putBoolean("IS_SKIPPED_PIN", true).apply()
+        pref.edit().putString("PHONE", "").apply()
+    }
 
 }

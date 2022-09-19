@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import uz.gita.myapplication.R
 import uz.gita.myapplication.data.source.remote.response.HistoryItem
 import uz.gita.myapplication.databinding.ItemHistoryIncomeBinding
 import uz.gita.myapplication.databinding.ItemHistoryOutcomeBinding
@@ -39,7 +40,7 @@ class HistoryAdapter :
                 itemIncomeBinding.dateTv.text = time
                 itemIncomeBinding.nameTv.text = this.owner
                 itemIncomeBinding.amountTv.text = this.amount.toString()
-                itemIncomeBinding.feeTv.text = "Fee: ${this.fee}"
+                itemIncomeBinding.feeTv.text = "${itemIncomeBinding.root.context.getString(R.string.fee)} ${this.fee}"
             }
 
             itemIncomeBinding.root.setOnClickListener {
@@ -65,7 +66,7 @@ class HistoryAdapter :
                 itemOutcomeBinding.dateTv.text = time
                 itemOutcomeBinding.nameTv.text = this.owner
                 itemOutcomeBinding.amountTv.text = this.amount.toString()
-                itemOutcomeBinding.feeTv.text = "Fee: ${this.fee}"
+                itemOutcomeBinding.feeTv.text = "${itemOutcomeBinding.root.context.getString(R.string.fee)} ${this.fee}"
             }
 
             itemOutcomeBinding.root.setOnClickListener {

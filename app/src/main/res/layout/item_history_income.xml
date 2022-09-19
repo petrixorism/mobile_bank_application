@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:foreground="?android:selectableItemBackgroundBorderless"
     android:background="#F6F6F6">
 
     <ImageView
@@ -20,9 +21,9 @@
     <TextView
         android:id="@+id/name_tv"
         android:layout_width="0dp"
-        android:layout_marginTop="8dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_medium"
         android:maxLines="1"
@@ -53,6 +54,7 @@
         android:id="@+id/date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/grey_darker"
@@ -60,7 +62,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fee_tv"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        android:layout_marginVertical="8dp"
         app:layout_constraintStart_toEndOf="@+id/logo_iv"
         app:layout_constraintTop_toBottomOf="@+id/name_tv"
         tools:text="17-noy 23:55" />

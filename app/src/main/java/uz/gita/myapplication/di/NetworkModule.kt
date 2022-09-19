@@ -13,7 +13,7 @@ import uz.gita.myapplication.data.source.locale.SharedPref
 import uz.gita.myapplication.data.source.remote.request.PhoneRequest
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://1c78-84-54-78-42.eu.ngrok.io"
+private const val BASE_URL = "https://ff32-95-214-210-176.eu.ngrok.io"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -44,8 +44,11 @@ object NetworkModule {
 
 
     @[Provides Singleton]
-    fun provideRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+    fun provideRetrofit(
+        client: OkHttpClient,
+        pref: SharedPref
+    ): Retrofit = Retrofit.Builder()
+        .baseUrl(pref.baseUrl)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -53,44 +56,81 @@ object NetworkModule {
     class TokenAuthenticator(
         private val pref: SharedPref
     ) : Authenticator {
+        private val interceptor =
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY)
+        private val client = OkHttpClient.Builder()
+            .addInterceptor(interceptor)
+            .build()
 
-        private val retrofit = Retrofit.Builder()
-            .client(
-                OkHttpClient.Builder()
-                    .addInterceptor(loggingInterceptor)
-                    .build()
-            )
+
+        val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        private val api = retrofit.create(AuthApi::class.java)
-
+        private val authApi = retrofit.create(AuthApi::class.java)
 
         override fun authenticate(route: Route?, response: Response): Request? {
 
-            val result =
-                api.refreshForEachRequest(pref.refreshToken, PhoneRequest(pref.phone)).execute()
+            val refreshResponse = authApi.refreshForEachRequest(
+                refreshRequest = PhoneRequest(pref.phone),
+                refreshToken = pref.refreshToken
+            ).execute()
 
-            if (result.code() == 401 || result.body() == null) {
-                pref.refreshToken = ""
-                pref.accessToken = ""
-                return null
+            if (refreshResponse.code() == 401) return null
+            if (refreshResponse.body() == null) return null
+
+            if (refreshResponse.isSuccessful) {
+                val tokenResult = refreshResponse.body()!!.data!!
+                pref.accessToken = tokenResult.accessToken
+                pref.refreshToken = tokenResult.refreshToken
             }
-
-            val tokenData = result.body()!!.data
-
-            pref.accessToken = tokenData!!.accessToken
-            pref.refreshToken = tokenData.refreshToken
-
             return response.request
                 .newBuilder()
-                .addHeader("token", tokenData.accessToken)
+                .removeHeader("token")
+                .addHeader("token", pref.accessToken)
                 .build()
-
         }
     }
+//        val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
+//            .setLevel(HttpLoggingInterceptor.Level.BODY)
+//
+//        private val retrofit = Retrofit.Builder()
+//            .client(
+//                OkHttpClient.Builder()
+//                    .addInterceptor(loggingInterceptor)
+//                    .build()
+//            )
+//            .baseUrl(BASE_URL)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        private val api = retrofit.create(AuthApi::class.java)
+//
+//
+//        override fun authenticate(route: Route?, response: Response): Request? {
+//
+//            val result =
+//                api.refreshForEachRequest(pref.refreshToken, PhoneRequest(pref.phone)).execute()
+//
+//            if (result.code() == 401) {
+//                pref.refreshToken = ""
+//                pref.accessToken = ""
+//                return null
+//            }
+//
+//            val tokenData = result.body()!!.data
+//
+//            pref.accessToken = tokenData!!.accessToken
+//            pref.refreshToken = tokenData.refreshToken
+//
+//            return response.request
+//                .newBuilder()
+//                .addHeader("token", tokenData.accessToken)
+//                .build()
+//
+//        }
+
 }
