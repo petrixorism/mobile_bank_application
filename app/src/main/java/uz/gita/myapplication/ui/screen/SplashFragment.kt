@@ -15,6 +15,7 @@ import uz.gita.myapplication.databinding.FragmentSplashBinding
 import uz.gita.myapplication.ui.viewmodel.SplashViewModel
 import uz.gita.myapplication.util.LocaleHelper
 import uz.gita.myapplication.util.animation.Animator
+import uz.gita.myapplication.util.isConnected
 
 @AndroidEntryPoint
 class SplashFragment : Fragment(R.layout.fragment_splash) {
@@ -27,7 +28,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
+isConnected()
         lifecycleScope.launch {
             viewModel.loginFlow.collect {
                 viewModel.languageCheck()

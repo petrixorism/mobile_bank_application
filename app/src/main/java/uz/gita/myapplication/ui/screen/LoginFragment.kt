@@ -1,8 +1,10 @@
 package uz.gita.myapplication.ui.screen
 
+
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -17,6 +19,8 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.getkeepsafe.taptargetview.TapTarget
+import com.getkeepsafe.taptargetview.TapTargetView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -34,6 +38,7 @@ import uz.gita.myapplication.databinding.FragmentLoginBinding
 import uz.gita.myapplication.ui.viewmodel.LoginViewModel
 import uz.gita.myapplication.util.animation.Animator
 import uz.gita.myapplication.util.showToast
+
 
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -91,6 +96,37 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.textView.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionGlobalBaseUrlFragment())
         }
+
+        TapTargetView.showFor(requireActivity(), TapTarget
+            .forView(
+                binding.goToRegister,
+                "If you don't have an account, register",
+                "it is very easy and takes little time"
+            ) // All options below are optional
+            .outerCircleColor(R.color.green) // Specify a color for the outer circle
+            .outerCircleAlpha(0.70f) // Specify the alpha amount for the outer circle
+            .targetCircleColor(R.color.white) // Specify a color for the target circle
+            .titleTextSize(20) // Specify the size (in sp) of the title text
+            .titleTextColor(R.color.white) // Specify the color of the title text
+            .descriptionTextSize(10) // Specify the size (in sp) of the description text
+            .descriptionTextColor(R.color.yellow) // Specify the color of the description text
+            .textColor(R.color.white) // Specify a color for both the title and description text
+            .textTypeface(Typeface.SANS_SERIF) // Specify a typeface for the text
+            .dimColor(R.color.black) // If set, will dim behind the view with 30% opacity of the given color
+            .drawShadow(true) // Whether to draw a drop shadow or not
+            .cancelable(true) // Whether tapping outside the outer circle dismisses the view
+            .tintTarget(true) // Whether to tint the target view's color
+            .transparentTarget(false) // Specify whether the target is transparent (displays the content underneath)
+            // Specify a custom drawable to draw as the target
+            .targetRadius(60),  // Specify the target radius (in dp)
+            object : TapTargetView.Listener() {
+                // The listener can listen for regular clicks, long clicks or cancels
+                override fun onTargetClick(view: TapTargetView) {
+                    super.onTargetClick(view) // This call is optional
+                    showToast("hello")
+                }
+            })
+
     }
 
     //-- BottomSheet Dialog--//

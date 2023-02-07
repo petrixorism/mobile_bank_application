@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, _ ->
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             // invisible some fragments later
             when (destination.id) {
 

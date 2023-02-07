@@ -13,7 +13,6 @@ import uz.gita.myapplication.data.source.locale.SharedPref
 import uz.gita.myapplication.data.source.remote.request.PhoneRequest
 import javax.inject.Singleton
 
-private const val BASE_URL = "https://ff32-95-214-210-176.eu.ngrok.io"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -65,7 +64,7 @@ object NetworkModule {
 
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(pref.baseUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
